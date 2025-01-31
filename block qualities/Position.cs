@@ -11,7 +11,7 @@
             Height = height;
             Width = width;
         } 
-        //This is going to help determine things like where the block starts, where it
+        //This is going to help determine where the block starts, where it
         //is in game, etc.
     }
 }

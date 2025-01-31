@@ -3,6 +3,12 @@
 public class Tetrominos
 {
     //would LINQ work for movement here?
+    public int[,] TheBlarg = new int[3, 3]
+    {
+        { 1, 0, 1 },
+        { 0, 1, 1 },
+        { 1, 1, 1 },
+    };
     public int[,] Square = new int[2, 2]
     {
         {1, 1 },
