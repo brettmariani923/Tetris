@@ -1,0 +1,71 @@
+﻿Different aspects of the game and things to consider
+
+    a. pieces
+        - how will we make them?
+        - different shapes
+        - randomness and new pieces
+        - where pieces will spawn
+
+    b. grid
+        - grid size
+        - need to print pieces over grid
+
+    c. movement of pieces
+        - speed increase
+        - reaching the bottom and clear lines
+            -checks if row is full
+        - piece rotation and inputs to change it
+        - pieces locking past a certian point
+
+    d. score and time
+        - do I even care about putting a timer in?
+        - keep score simple, maybe just one point per line and 5 for a tetris
+    
+    
+    2. How do I want to go about creating these things, and which parts should connect
+    with eachother in what order?
+
+
+    a. pieces
+        - should probably be their own class, maybe make each into a seperate array and 
+        can instatiate the object within the grid array. How would I connect them? 
+        Is this overcomplicating things
+        - then maybe make a list of the arrays and use a foreach to call individual pieces
+        or some other way to interate through the list randomly
+        - pieces can be static objects designed for the grid like {1, 1,} {1, 1,}
+        for square, etc, using the same creation method as the grid. 
+
+        - randomness will be easy, can just do Random random = new Random(); and then assign
+        the current piece using Next ()
+
+        -pieces can just spawn on the grid, its probably not worth the trouble figuring 
+        out how to make them spawn off screen. Could make the grid a little bigger to
+        accomidate.
+
+    b. grid
+        - so grid can be based off the code we found online for a tetris grid
+        which is 
+
+        public static int width = 10;
+        public static int height = 20;
+        public static char[,] grid = new char[height, width];
+
+    c. movement of pieces 
+        - speed increase should be easy. we make a check using the score, or even by number
+        of tetraminos like 
+
+        if (tetraminos amount / score >= 10)
+        {
+            speed++
+        }
+
+        
+    Looking at the code for tetris, they seem to have checks for 
+    
+    - is given cell empty 
+    - is row full
+    - if row empty
+    - write method that clears a row
+    - write method that moves down by a certian number of rows
+    
+    

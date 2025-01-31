@@ -1,0 +1,20 @@
+﻿1. Created a grid 
+
+2. Created position class
+
+3. Created pieces
+
+4.
+
+
+To Do
+
+2. collision detection
+
+3. piece rotation
+
+4. piece locking
+
+5. line clearing/ tetris
+
+6. 
