@@ -7,7 +7,7 @@ public class Tetrominos
     {
         { 1, 0, 1 },
         { 0, 1, 1 },
-        { 1, 1, 1 },
+        { 1, 1, 0 },
     };
     public int[,] Square = new int[2, 2]
     {

@@ -1,9 +1,9 @@
 ﻿namespace Tetris;
 
-public abstract class assignments
+public abstract class BlockAssignments
 {
     public abstract Position WhichSpaces { get; } //covers spaces the block will 
-    //be in on the grid while in play
+    //be in while on the grid in play
     
     public abstract Position StartingPoint { get; }
     //define where we want to blocks to start falling from
