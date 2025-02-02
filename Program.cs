@@ -6,8 +6,7 @@ namespace Tetris
     {
         public static void Main(string[] args)
         {
-             Grid.CreateGrid(); 
-             
+            
             
         }
     }

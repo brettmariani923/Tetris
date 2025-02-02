@@ -2,7 +2,11 @@
 
 public class Tetrominos
 {
-    //would LINQ work for movement here?
+    //would LINQ work for movements? for multi dimensonal arrays
+    //should I add these all to a list, and then randomly select from the list to generate
+    //pieces?
+    //could use a switch statement to determine 
+    
     public int[,] TheBlarg = new int[3, 3]
     {
         { 1, 0, 1 },
@@ -57,4 +61,5 @@ public class Tetrominos
         { 0, 0, 1 },
         { 1, 1, 1 }
     };
+
 }

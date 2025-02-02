@@ -11,8 +11,9 @@
             Height = height;
             Width = width;
         } 
+        //Height and width holder, this is going to be necessary for multiple dimensions
         //This is going to help determine where the block starts, where it
-        //is in game, etc.
+        //is in game, much more. 
     }
 }
 

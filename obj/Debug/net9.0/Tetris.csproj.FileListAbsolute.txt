@@ -12,3 +12,4 @@ C:\Users\brett\RiderProjects\Tetris\Tetris\obj\Debug\net9.0\refint\Tetris.dll
 C:\Users\brett\RiderProjects\Tetris\Tetris\obj\Debug\net9.0\Tetris.pdb
 C:\Users\brett\RiderProjects\Tetris\Tetris\obj\Debug\net9.0\Tetris.genruntimeconfig.cache
 C:\Users\brett\RiderProjects\Tetris\Tetris\obj\Debug\net9.0\ref\Tetris.dll
+C:\Users\brett\RiderProjects\Tetris\Tetris\obj\Debug\net9.0\Tetris.sourcelink.json
