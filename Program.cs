@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace Tetris
 {
@@ -6,8 +7,9 @@ namespace Tetris
     {
         public static void Main(string[] args)
         {
+           
             
-            
+
         }
     }
 }

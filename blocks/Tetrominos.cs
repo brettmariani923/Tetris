@@ -2,64 +2,32 @@
 
 public class Tetrominos
 {
-    //would LINQ work for movements? for multi dimensonal arrays
-    //should I add these all to a list, and then randomly select from the list to generate
-    //pieces?
-    //could use a switch statement to determine 
+     public static (int x, int y)[][] pieces = new (int, int)[][]
+    {
+        //for anyone reading this who might not understand right away,
+        //the coordinate describe where the blocks are going from a 
+        //center point (0,0) based on x, y coordinates
+        //so for example in the square piece, (0,0) is the first block
+        //(1,0) is describing one block to the right on the x axis
+        //(0,1) is describing one block directly below on the y axis
+        //(1,1) describes a block one to the right and one down from it
+        
+        new [] { (0,0), (1,0), (0,1), (1,1) }, //square
+        
+        new [] { (0,0), (-1,0), (1,0), (2,0) }, //long
+        
+        new [] { (0,0), (-1,0), (1,0), (0,1) }, //t piece
+        
+        new [] { (0,0), (-1,0), (1,0), (1,1) }, //j block
+        
+        new [] { (0,0), (-1,0), (1,0), (-1,1) }, //l block
+        
+        new[] { (0,0), (-1, -1), (1, 0), (2, 2) }, //The blarg (supposed to make you say "blarg" in anger)
+        
+        new[] { (0,0), (-1,0), (-2,0), (-3, 0), (0, 1), (0, 2), (0, 3) } //The trolls bridge
+    };
+        
+ 
+
     
-    public int[,] TheBlarg = new int[3, 3]
-    {
-        { 1, 0, 1 },
-        { 0, 1, 1 },
-        { 1, 1, 0 },
-    };
-    public int[,] Square = new int[2, 2]
-    {
-        {1, 1 },
-        {1, 1 }
-    };
-
-    public int[,] Tblock = new int[3, 3]
-    {
-        { 0, 0, 0 },
-        { 0, 1, 0 },
-        { 1, 1, 1 }
-    };
-
-    public int[,] Long = new int[4, 4]
-    {
-        { 1, 0, 0, 0 },
-        { 1, 0, 0, 0 },
-        { 1, 0, 0, 0 },
-        { 1, 0, 0, 0 }
-    };
-
-    public int[,] Sblock = new int[3, 3]
-    {
-        { 0, 0, 0},
-        { 0, 1, 1},
-        { 1, 1, 0}
-    };
-
-    public int[,] Zblock = new int[3, 3]
-    {
-        { 0, 0, 0 },
-        { 1, 1, 0 },
-        { 0, 1, 1 }
-    };
-
-    public int[,] Jblock = new int[3, 3]
-    {
-        { 0, 0, 0 },
-        { 1, 0, 0 },
-        { 1, 1, 1 }
-    };
-
-    public int[,] Lblock = new int[3, 3]
-    {
-        { 0, 0, 0 },
-        { 0, 0, 1 },
-        { 1, 1, 1 }
-    };
-
 }

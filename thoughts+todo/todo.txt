@@ -1,0 +1,24 @@
+﻿1. Created a grid 
+
+2. Created position class
+
+3. Created pieces
+
+4.
+
+
+To Do
+
+1. Draw Board
+
+2. Read key inputs
+
+3. Clear lines
+
+4. Place pieces
+
+5. Can move 
+
+6. Move piece
+
+7. New piece generation
