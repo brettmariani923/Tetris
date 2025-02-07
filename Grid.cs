@@ -5,8 +5,8 @@ namespace Tetris;
 
 public class Grid : BlockPhases
 {
-    public static int Width;
-    public static int Height;
+    public static int Width = 20;
+    public static int Height = 10;
     public static int[,] NewGrid = new int[Width, Height];
     static Random random = new Random();
     public Position? StartPoint;
@@ -20,7 +20,7 @@ public class Grid : BlockPhases
 
     public Position Start
     {
-        get => new (20, 10 / 2);
+        get => new (Width = 10 / 2, Height = 20);
         set => StartPoint = value;
     }
     
@@ -30,23 +30,30 @@ public class Grid : BlockPhases
         set => NewPiece = value;
     }
 
-    public bool IsRowFull(int w)
+    
+
+    public bool IsCellEmpty(int w, int h)
     {
-        for (int h = 0; h < Width; h++)
+        return NewGrid[w, h] == 0;  //w, h will go through cells checking for empties 
+    }
+    
+    public static bool IsRowFull(int w)
+    {
+        for (int h = 0; h < Height; h++)    //using incrementation to check if rows are full
         {
-            if (NewGrid[w, h] == 0)
+            if (NewGrid[w, h] == 0)     //if cell is empty row isnt full
             {
                 return false;
             }
         }
         return true;
     }
-
+    
     public bool IsRowEmpty(int w)
     {
-        for (int h = 0; h < Width; h++)
+        for (int h = 0; h < Height; h++)
         {
-            if (NewGrid[w, h] != 0)
+            if (NewGrid[w, h] != 0)         //if cell isnt empty row is full
             {
                 return false;
             }
@@ -54,12 +61,44 @@ public class Grid : BlockPhases
         return true;
     }
 
-    public void ClearRow(int w)
+    public static void ClearRow(int w)
     {
-        if (IsRowFull(w) == true)
+        if (IsRowFull(w))
         {
-             (NewGrid[w, h] = 0;)
+            for (int h = 0; h < Height; h++)
+            {
+                NewGrid[w, h] = 0;
+            }
+            
         }
+    }
+
+    public static void RowDown(int w, int rowNumber)
+    {
+        for (int h = 0; h < Height; h++)
+        {
+            NewGrid[w + rowNumber, h] = NewGrid[w, h];
+            NewGrid[w, h] = 0;
+        }
+    }
+
+    public static int ClearFullRows()
+    {
+        int clear = 0;
+
+        for (int w = Width - 1; w >= 0; w--)
+        {
+            if (IsRowFull(w))
+            {
+                ClearRow(w);
+                clear++;
+            }
+            else if (clear > 0)
+            {
+                RowDown(w, clear);
+            }
+        }
+        return clear;
     }
     
 }
