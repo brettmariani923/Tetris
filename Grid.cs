@@ -12,13 +12,13 @@ public class Grid : BlockPhases
     public Position? StartPoint;
     public int NewPiece;
 
-    public int this[int w, int h]
+    public int this[int w, int h]               //this was based off of something i found online to help me out with how I would make it.
     {
         get => NewGrid[w, h];
         set => NewGrid[w, h] = value;
     }
 
-    public Position Start
+    public Position Start                                   
     {
         get => new (Width = 10 / 2, Height = 20);
         set => StartPoint = value;

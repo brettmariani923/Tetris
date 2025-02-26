@@ -61,8 +61,7 @@ Looking at the code for tetris, they seem to have checks for
         - randomness will be easy, can just do Random random = new Random(); and then assign
         the current piece using Random.Next ()
 
-        -pieces can just spawn on the grid, its probably not worth the trouble figuring 
-        out how to make them spawn off screen. Could make the grid a little bigger.
+       
 
     b. grid
         - so grid can be based off the code we found online for a typical tetris grid

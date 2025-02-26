@@ -12,19 +12,17 @@ namespace Tetris
         public static void Main(string[] args)
         {
             bool gameOver = false;
-            Console.CursorVisible = false;
             Tetrominos.NewPiece();
             Thread inputThread = new Thread(Tetrominos.ReadInput);
             inputThread.Start();
             while (!gameOver)
             {
                 Tetrominos.DrawBoard();
-                Thread.Sleep(500);
+                Thread.Sleep(100);
                 Tetrominos.MovePiece(0, 1);
             }
-            Console.SetCursorPosition(0, Grid.Height + 2);
             Console.WriteLine("Game Over!");
-
+            
         }
     }
 }
