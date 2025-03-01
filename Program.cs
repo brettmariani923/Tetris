@@ -24,24 +24,25 @@ namespace Tetris
             {
                 if (Grid.IsGameOver())
                 {
-                    Console.SetCursorPosition(0,0);
+                    Console.Clear();
                     Console.WriteLine("G A M E  O V E R");
-                    Console.WriteLine("Press space bar to continue");
-                    break;
+                    Console.WriteLine($"Score: {Grid.score}");
+                    Console.WriteLine("My Emperor... I've Failed Youuuuuu!!");
+                   
                     input = Console.ReadLine();
-                    if (input == " ")
+                    if (input == "+")
                     { goto Start; }
+                    break;
 
-                    
                 }
-
+                
                 Grid.ClearFullRows();
                 Tetrominos.DrawBoard();
                 Thread.Sleep(500);
                 Tetrominos.MovePiece(0, 1);
-                
+            
             }
-            Console.SetCursorPosition(0, 2);
+            Console.SetCursorPosition(0, 0);
             goto Start;
         }
     }

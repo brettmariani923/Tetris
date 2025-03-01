@@ -1,7 +1,10 @@
-﻿namespace Tetris;
+﻿using System;
+using System.Globalization;
 
-public class Score
-{
-    int score = 0;
+using System;
+using System.Threading;
+using System.Diagnostics.Metrics;
 
-}
+
+namespace Tetris;
+

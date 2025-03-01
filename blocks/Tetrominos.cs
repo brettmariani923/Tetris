@@ -22,7 +22,7 @@ public class Tetrominos
         
         new [] { (0,0), (-1,0), (1,0), (-1,1) }, //l block
         
-        new[] { (0,0), (0,-1), (1, 0), (0, 1) }, //The blarg (supposed to make you say "blarg" in anger)
+        new[] { (0,0), (-1,0), (1, 0), (0, 1) }, //The blarg (supposed to make you say "blarg" in anger)
     };
     
 

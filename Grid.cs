@@ -12,6 +12,7 @@ public class Grid : BlockPhases
     public Position? StartPoint;
     public int NewPiece;
     private static int x;
+    public static int score = 0;
 
     public int this[int w, int h]               //this was based off of something i found online to help me out with how I would make it.
     {
@@ -73,8 +74,12 @@ public class Grid : BlockPhases
                 NewGrid[w, h] = 0;
             }
             
+            score++;
+            
         }
     }
+
+
 
     public static void ClearBoard()
     {
