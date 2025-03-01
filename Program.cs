@@ -24,7 +24,7 @@ namespace Tetris
             {
                 if (Grid.IsGameOver())
                 {
-                    Console.Clear();
+                    Console.SetCursorPosition(0,0);
                     Console.WriteLine("G A M E  O V E R");
                     Console.WriteLine("Press space bar to continue");
                     break;

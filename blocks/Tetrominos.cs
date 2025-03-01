@@ -86,6 +86,7 @@ public class Tetrominos
     public static void DrawBoard()                  //wrote about half of this, got some help with the part that determines where the piece is.
                                                     //this draws the gameboard and checks if the grid is currently occupied by a piece
     {
+        Console.SetCursorPosition(0, 0);
         for (int y = 0; y < height; y++)            //uses a bool to check cells for a piece, if it does it registers true it draws an x
         {                                           //otherwise it does . for empty space
             for (int x = 0; x < width; x++)
@@ -99,9 +100,11 @@ public class Tetrominos
                         break;
                     }
                 }
+
                 Console.Write(isPiece || Grid.NewGrid[y, x] != 0 ? "X" : ".");
             }
             Console.WriteLine();
+           
         }
     }
 
