@@ -11,6 +11,7 @@ public class Grid : BlockPhases
     static Random random = new Random();
     public Position? StartPoint;
     public int NewPiece;
+    private static int x;
 
     public int this[int w, int h]               //this was based off of something i found online to help me out with how I would make it.
     {
@@ -49,7 +50,9 @@ public class Grid : BlockPhases
         return true;
     }
     
-    public bool IsRowEmpty(int w)
+   
+
+    public static bool IsRowEmpty(int w)
     {
         for (int h = 0; h < Height; h++)
         {
@@ -68,6 +71,18 @@ public class Grid : BlockPhases
             for (int h = 0; h < Height; h++)
             {
                 NewGrid[w, h] = 0;
+            }
+            
+        }
+    }
+
+    public static void ClearBoard()
+    {
+        for (int h = 0; h < Width; h++)
+        {
+            for (int w = 0; w < Height; w++)
+            {
+                NewGrid[h, w] = 0;
             }
             
         }
@@ -100,5 +115,17 @@ public class Grid : BlockPhases
         }
         return clear;
     }
-    
+
+    public static bool IsGameOver()                             //Added a check to see if bottom of the board is empty
+    {                                                           // in addition to seeing the top row is full so that it 
+        for (int h = 0; h < Height; h++)                         // doesn't trigger early
+        {
+            if (NewGrid[0, h] != 0)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

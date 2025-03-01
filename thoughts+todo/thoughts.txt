@@ -54,7 +54,7 @@ Looking at the code for tetris, they seem to have checks for
         can instatiate the object within the grid array. How would I connect them? 
         Is this overcomplicating things
         - then maybe make a list of the arrays and use a foreach to call individual pieces
-        or find some other way to interate pieces through the grid
+        or find some other way to iterate pieces through the grid
         - pieces could be objects designed for the grid 
         like {1, 1,} {1, 1,} for square, etc, using a similar method as the grid. 
 

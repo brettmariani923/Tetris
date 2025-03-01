@@ -31,7 +31,7 @@ public class Tetrominos
     static int width = 10, height = 20;             //hight and width of gameboard
     static bool gameOver = false;                   //checks for gameover
     
-    static bool CanMove(int dx, int dy)                     //couldn't figure this out on my own so I 
+    public static bool CanMove(int dx, int dy)                     //couldn't figure this out on my own so I 
     {                                                       //found this part online.
         foreach (var (px, py) in currentPiece)              //defines the elements of each dimension of the piece(x or y)
         {                                                   //to see if the piece is in play, if it is inside the gameboard
@@ -56,7 +56,7 @@ public class Tetrominos
                                                     //so I found this part online. 
     {                                               //basically changes pieces from active to set so nex piece can spawn, works by adding the current
                                                     //pieces position (px/py = relative positions of each cell that makes up piece)
-                                                    //to the game grid [y, x] when it reaches the bottom and marks the cell as occupied (1)
+                                                   //to the game grid [y, x] when it reaches the bottom and marks the cell as occupied (1)
                                                     
         foreach (var (px, py) in currentPiece)      
         {                                           
@@ -65,7 +65,7 @@ public class Tetrominos
             if (y >= 0) Grid.NewGrid[y, x] = 1;
         }
     }
-    
+
     public static void MovePiece(int dx, int dy)        //this just determines if the piece can move or if its set
     {                                                   //if it CanMove, it accepts inputs and adds them to change the position of the piece (dx = horizontal movement of piece, dy vertical movement of piece)
         if (CanMove(dx, dy))                            //if not, it places the piece, checks for full rows, then initiates a new piece
@@ -78,12 +78,13 @@ public class Tetrominos
             PlacePiece();
             Grid.ClearFullRows();
             NewPiece();
+            
         }
     }
-    
+
     public static void DrawBoard()                  //wrote about half of this, got some help with the part that determines where the piece is.
                                                     //this draws the gameboard and checks if the grid is currently occupied by a piece
-    {                                               //checks x and y to fill out the grid, and
+    {
         for (int y = 0; y < height; y++)            //uses a bool to check cells for a piece, if it does it registers true it draws an x
         {                                           //otherwise it does . for empty space
             for (int x = 0; x < width; x++)
@@ -102,6 +103,12 @@ public class Tetrominos
             Console.WriteLine();
         }
     }
+
+
+
+
+    
+
     
     public static void ReadInput()              //this is for inputs that determine how the piece move
     {                                           //currently i have an up input just so i can play around with it
