@@ -30,8 +30,8 @@ namespace Tetris
                     Console.WriteLine("My Emperor... I've Failed Youuuuuu!!");
                    
                     input = Console.ReadLine();
-                    if (input == "+")
-                    { goto Start; }
+                   
+                    
                     break;
 
                 }
