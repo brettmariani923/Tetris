@@ -14,7 +14,7 @@ namespace Tetris
         public static void Main(string[] args)
         {
         Start:
-            int counter;
+            string input;
             bool gameOver = false;
             Tetrominos.NewPiece();
             Thread inputThread = new Thread(Tetrominos.ReadInput);
@@ -26,7 +26,13 @@ namespace Tetris
                 {
                     Console.Clear();
                     Console.WriteLine("G A M E  O V E R");
+                    Console.WriteLine("Press space bar to continue");
                     break;
+                    input = Console.ReadLine();
+                    if (input == " ")
+                    { goto Start; }
+
+                    
                 }
 
                 Grid.ClearFullRows();

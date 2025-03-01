@@ -27,7 +27,7 @@ public class Grid : BlockPhases
     
     public int WhichBlock
     {
-        get => random.Next(Tetrominos.pieces.Length);
+        get => random.Next(Tetrominos.piecesPool.Length);
         set => NewPiece = value;
     }
 
@@ -116,8 +116,8 @@ public class Grid : BlockPhases
         return clear;
     }
 
-    public static bool IsGameOver()                             //Added a check to see if bottom of the board is empty
-    {                                                           // in addition to seeing the top row is full so that it 
+    public static bool IsGameOver()                             //Added a check
+    {                                                          
         for (int h = 0; h < Height; h++)                         // doesn't trigger early
         {
             if (NewGrid[0, h] != 0)

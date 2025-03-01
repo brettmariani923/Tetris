@@ -2,7 +2,7 @@
 
 public class Tetrominos
 {
-     public static (int x, int y)[][] pieces = new (int, int)[][]
+     public static (int x, int y)[][] piecesPool = new (int, int)[][]
     {
         //making an array of arrays,
         //for the blocks center point is (0,0) based on x, y coordinates
@@ -12,6 +12,7 @@ public class Tetrominos
         //(1,1) describes a block one to the right and one up
         
         new [] { (0,0), (1,0), (0,1), (1,1) }, //square
+                    
         
         new [] { (0,0), (-1,0), (1,0), (2,0) }, //long
         
@@ -21,13 +22,13 @@ public class Tetrominos
         
         new [] { (0,0), (-1,0), (1,0), (-1,1) }, //l block
         
-        new[] { (0,0), (-1, -1), (1, 0), (2, 2) }, //The blarg (supposed to make you say "blarg" in anger)
+        new[] { (0,0), (0,-1), (1, 0), (0, 1) }, //The blarg (supposed to make you say "blarg" in anger)
     };
     
 
     static (int x, int y)[] currentPiece;           //for pieces
     static Random random = new Random();            //instatiating random object for pieces
-    static (int x, int y) position;                 //declares pieces poisiton on the gird
+    static (int x, int y) positionOfPiece;                 //declares pieces poisiton on the gird
     static int width = 10, height = 20;             //hight and width of gameboard
     static bool gameOver = false;                   //checks for gameover
     
@@ -35,8 +36,8 @@ public class Tetrominos
     {                                                       //found this part online.
         foreach (var (px, py) in currentPiece)              //defines the elements of each dimension of the piece(x or y)
         {                                                   //to see if the piece is in play, if it is inside the gameboard
-            int x = position.x + px + dx;                   
-            int y = position.y + py + dy;
+            int x = positionOfPiece.x + px + dx;                   
+            int y = positionOfPiece.y + py + dy;
             if (x < 0 || x >= width || y < 0 || y >= height || (y >= 0 && Grid.NewGrid[y, x] != 0))
                 return false;
         }
@@ -47,8 +48,8 @@ public class Tetrominos
                                         //and positions it at the top and center of the board
                                         //if it hits zero it starts over
     {
-        currentPiece = pieces[random.Next(pieces.Length)];
-        position = ((width / 2), 0);
+        currentPiece = piecesPool[random.Next(piecesPool.Length)];
+        positionOfPiece = ((width / 2), 0);
         if (!CanMove(0, 0)) gameOver = true;
     }
 
@@ -60,8 +61,8 @@ public class Tetrominos
                                                     
         foreach (var (px, py) in currentPiece)      
         {                                           
-            int x = position.x + px;
-            int y = position.y + py;
+            int x = positionOfPiece.x + px;
+            int y = positionOfPiece.y + py;
             if (y >= 0) Grid.NewGrid[y, x] = 1;
         }
     }
@@ -70,8 +71,8 @@ public class Tetrominos
     {                                                   //if it CanMove, it accepts inputs and adds them to change the position of the piece (dx = horizontal movement of piece, dy vertical movement of piece)
         if (CanMove(dx, dy))                            //if not, it places the piece, checks for full rows, then initiates a new piece
         {
-            position.x += dx;
-            position.y += dy;
+            positionOfPiece.x += dx;
+            positionOfPiece.y += dy;
         }
         else if (dy > 0)
         {
@@ -92,7 +93,7 @@ public class Tetrominos
                 bool isPiece = false;
                 foreach (var (px, py) in currentPiece)
                 {
-                    if (position.x + px == x && position.y + py == y)
+                    if (positionOfPiece.x + px == x && positionOfPiece.y + py == y)
                     {
                         isPiece = true;
                         break;
