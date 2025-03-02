@@ -36,13 +36,14 @@ namespace Tetris
 
                 }
                 
+
                 Grid.ClearFullRows();
                 Tetrominos.DrawBoard();
                 Thread.Sleep(500);
                 Tetrominos.MovePiece(0, 1);
             
             }
-            Console.SetCursorPosition(0, 0);
+            
             goto Start;
         }
     }

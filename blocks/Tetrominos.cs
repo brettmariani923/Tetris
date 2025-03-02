@@ -1,7 +1,16 @@
 ﻿namespace Tetris;
 
 public class Tetrominos
-{
+{   
+    public enum PieceType
+    {
+        Square,
+        Long,
+        T,
+        J,
+        L,
+        Blarg
+    }
      public static (int x, int y)[][] piecesPool = new (int, int)[][]
     {
         //making an array of arrays,
@@ -82,6 +91,15 @@ public class Tetrominos
             
         }
     }
+
+    public static void Rotation(int dx, int dy)
+    {
+        if (CanMove(dx, dy))
+        {
+
+        }
+    }
+       
 
     public static void DrawBoard()                  //wrote about half of this, got some help with the part that determines where the piece is.
                                                     //this draws the gameboard and checks if the grid is currently occupied by a piece
