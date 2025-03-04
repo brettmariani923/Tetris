@@ -5,13 +5,14 @@ using System;
 using System.Threading;
 using System.Diagnostics.Metrics;
 using System.Threading.Tasks.Sources;
+using System.ComponentModel.Design.Serialization;
 
 
 namespace Tetris
 {
     public class Program
     {
-        
+       
         public static void Main(string[] args)
         {
         Start:
@@ -22,6 +23,7 @@ namespace Tetris
             inputThread.Start();
             Console.SetCursorPosition(0, 0);
             Console.CursorVisible = false;
+           
 
             while (true)
             {
@@ -42,7 +44,8 @@ namespace Tetris
 
                 Grid.ClearFullRows();
                 Tetrominos.DrawBoard();
-                Thread.Sleep(400);
+                Tetrominos.SpeedIncrease();
+                Thread.Sleep(Tetrominos.fallIncrease);
                 Tetrominos.MovePiece(0, 1);
             
             }

@@ -163,13 +163,16 @@ public class Tetrominos
             Console.ResetColor();
         
     }
+    public static int fallIncrease = 400;
 
+    public static void SpeedIncrease()
+    {
+        int fallIncrease = Math.Max(50, 400 - (Grid.score * 20));
 
+        
 
+    }
 
-    
-
-    
     public static void ReadInput()              //this is for inputs that determine how the piece move
     {                                           //currently i have an up input just so i can play around with it
         while (!gameOver)                       //later i'll change that
