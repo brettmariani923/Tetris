@@ -21,7 +21,7 @@ namespace Tetris
             Thread inputThread = new Thread(Tetrominos.ReadInput);
             inputThread.Start();
             Console.SetCursorPosition(0, 0);
-
+            Console.CursorVisible = false;
 
             while (true)
             {
