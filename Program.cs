@@ -4,6 +4,7 @@ using System.Globalization;
 using System;
 using System.Threading;
 using System.Diagnostics.Metrics;
+using System.Threading.Tasks.Sources;
 
 
 namespace Tetris
@@ -19,6 +20,8 @@ namespace Tetris
             Tetrominos.NewPiece();
             Thread inputThread = new Thread(Tetrominos.ReadInput);
             inputThread.Start();
+            Console.SetCursorPosition(0, 0);
+
 
             while (true)
             {
@@ -39,11 +42,11 @@ namespace Tetris
 
                 Grid.ClearFullRows();
                 Tetrominos.DrawBoard();
-                Thread.Sleep(500);
+                Thread.Sleep(400);
                 Tetrominos.MovePiece(0, 1);
             
             }
-            
+            Console.SetCursorPosition(0, 0);
             goto Start;
         }
     }

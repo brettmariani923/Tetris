@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Timers;
 
 namespace Tetris;
 
@@ -8,11 +9,13 @@ public class Grid : BlockPhases
     public static int Width = 20;
     public static int Height = 10;
     public static int[,] NewGrid = new int[Width, Height];
+    public static ConsoleColor[,] ColorGrid = new ConsoleColor[20, 10];
     static Random random = new Random();
     public Position? StartPoint;
     public int NewPiece;
     private static int x;
     public static int score = 0;
+
 
     public int this[int w, int h]               //this was based off of something i found online to help me out with how I would make it.
     {
@@ -81,6 +84,7 @@ public class Grid : BlockPhases
 
 
 
+
     public static void ClearBoard()
     {
         for (int h = 0; h < Width; h++)
@@ -133,4 +137,5 @@ public class Grid : BlockPhases
         return false;
     }
 
+  
 }

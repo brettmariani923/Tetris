@@ -1,18 +1,12 @@
-﻿namespace Tetris;
+﻿using System.Drawing;
+
+namespace Tetris;
 
 public class Tetrominos
-{   
-    public enum PieceType
-    {
-        Square,
-        Long,
-        T,
-        J,
-        L,
-        Blarg
-    }
-     public static (int x, int y)[][] piecesPool = new (int, int)[][]
-    {
+{
+
+    public static (int x, int y)[][] piecesPool = new (int, int)[][]
+   {
         //making an array of arrays,
         //for the blocks center point is (0,0) based on x, y coordinates
         //so for example in the square piece, (0,0) is the first block
@@ -33,14 +27,26 @@ public class Tetrominos
         
         new[] { (0,0), (-1,0), (1, 0), (0, 1) }, //The blarg (supposed to make you say "blarg" in anger)
     };
-    
+
+    public static ConsoleColor[] pieceColors =
+    {
+    ConsoleColor.Yellow,    // Square (O)
+    ConsoleColor.Cyan,      // Long (I)
+    ConsoleColor.Magenta,   // T piece
+    ConsoleColor.Blue,      // J block
+    ConsoleColor.DarkYellow,// L block
+    ConsoleColor.Green,     // S block
+    ConsoleColor.Red        // Z block
+    };
+
 
     static (int x, int y)[] currentPiece;           //for pieces
     static Random random = new Random();            //instatiating random object for pieces
     static (int x, int y) positionOfPiece;                 //declares pieces poisiton on the gird
     static int width = 10, height = 20;             //hight and width of gameboard
-    static bool gameOver = false;                   //checks for gameover
-    
+    static bool gameOver = false;
+    static int currentPieceIndex; 
+
     public static bool CanMove(int dx, int dy)                     //couldn't figure this out on my own so I 
     {                                                       //found this part online.
         foreach (var (px, py) in currentPiece)              //defines the elements of each dimension of the piece(x or y)
@@ -57,22 +63,28 @@ public class Tetrominos
                                         //and positions it at the top and center of the board
                                         //if it hits zero it starts over
     {
-        currentPiece = piecesPool[random.Next(piecesPool.Length)];
+        currentPieceIndex = random.Next(piecesPool.Length);
+        currentPiece = piecesPool[currentPieceIndex];
         positionOfPiece = ((width / 2), 0);
         if (!CanMove(0, 0)) gameOver = true;
     }
 
-    static void PlacePiece()                        //couldn't figure this out on my own
-                                                    //so I found this part online. 
-    {                                               //basically changes pieces from active to set so nex piece can spawn, works by adding the current
-                                                    //pieces position (px/py = relative positions of each cell that makes up piece)
-                                                   //to the game grid [y, x] when it reaches the bottom and marks the cell as occupied (1)
+    static void PlacePiece()                                                 //couldn't figure this out on my own
+                                                                              //so I found this part online. 
+    {                                                                           //basically changes pieces from active to set so nex piece can spawn, works by adding the current
+        
+        ConsoleColor pieceColor = pieceColors[currentPieceIndex];                    //pieces position (px/py = relative positions of each cell that makes up piece)
+                                                                             //to the game grid [y, x] when it reaches the bottom and marks the cell as occupied (1)
                                                     
         foreach (var (px, py) in currentPiece)      
         {                                           
             int x = positionOfPiece.x + px;
             int y = positionOfPiece.y + py;
-            if (y >= 0) Grid.NewGrid[y, x] = 1;
+            if (y >= 0)
+            {
+                Grid.NewGrid[y, x] = 1;
+                Grid.ColorGrid[y, x] = pieceColor;
+            }
         }
     }
 
@@ -92,38 +104,64 @@ public class Tetrominos
         }
     }
 
-    public static void Rotation(int dx, int dy)
-    {
-        if (CanMove(dx, dy))
-        {
 
+    private static bool CanRotate((int x, int y)[] rotatedPiece)
+    {
+        foreach (var (px, py) in rotatedPiece)
+        {
+            int x = positionOfPiece.x + px;
+            int y = positionOfPiece.y + py;
+            if (x < 0 || x >= width || y < 0 || y >= height || (y >= 0 && Grid.NewGrid[y, x] != 0))
+                return false;
         }
+        return true;
     }
-       
+
+    public static void RotatePiece()
+    {
+        var rotatedPiece = currentPiece
+            .Select(cell => (-cell.y, cell.x)) 
+            .ToArray();
+
+        if (CanRotate(rotatedPiece)) 
+            currentPiece = rotatedPiece;
+    }
+
 
     public static void DrawBoard()                  //wrote about half of this, got some help with the part that determines where the piece is.
                                                     //this draws the gameboard and checks if the grid is currently occupied by a piece
     {
-        Console.SetCursorPosition(0, 0);
-        for (int y = 0; y < height; y++)            //uses a bool to check cells for a piece, if it does it registers true it draws an x
-        {                                           //otherwise it does . for empty space
-            for (int x = 0; x < width; x++)
-            {
-                bool isPiece = false;
-                foreach (var (px, py) in currentPiece)
-                {
-                    if (positionOfPiece.x + px == x && positionOfPiece.y + py == y)
-                    {
-                        isPiece = true;
-                        break;
-                    }
-                }
+        
+            Console.SetCursorPosition(0, 0);
 
-                Console.Write(isPiece || Grid.NewGrid[y, x] != 0 ? "X" : ".");
+            for (int y = 0; y < height; y++)            //uses a bool to check cells for a piece, if it does it registers true it draws an x
+            {                                           //otherwise it does . for empty space
+                for (int x = 0; x < width; x++)
+                {
+                    bool isPiece = false;
+                    ConsoleColor color = ConsoleColor.White;
+
+                    foreach (var (px, py) in currentPiece)
+                    {
+                        if (positionOfPiece.x + px == x && positionOfPiece.y + py == y)
+                        {
+                            isPiece = true;
+                            color = pieceColors[currentPieceIndex];
+                            break;
+                        }
+                    }
+
+                    if (!isPiece && Grid.NewGrid[y, x] != 0)
+                        color = Grid.ColorGrid[y, x];
+
+                    Console.ForegroundColor = color;
+                    Console.Write(isPiece || Grid.NewGrid[y, x] != 0 ? "X" : ".");
+                }
+                Console.WriteLine();
+
             }
-            Console.WriteLine();
-           
-        }
+            Console.ResetColor();
+        
     }
 
 
@@ -140,7 +178,7 @@ public class Tetrominos
             if (key == ConsoleKey.LeftArrow) MovePiece(-1, 0);
             if (key == ConsoleKey.RightArrow) MovePiece(1, 0);
             if (key == ConsoleKey.DownArrow) MovePiece(0, 1);
-            if (key == ConsoleKey.UpArrow) MovePiece(0, -1);
+            if (key == ConsoleKey.UpArrow) RotatePiece();
         }
     }
 }
