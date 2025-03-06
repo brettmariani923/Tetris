@@ -33,7 +33,8 @@ namespace Tetris
                     Console.WriteLine("G A M E  O V E R");
                     Console.WriteLine($"Score: {Grid.score}");
                     Console.WriteLine("My Emperor... I've Failed Youuuuuu!!");
-                   
+                    Console.WriteLine("www.youtube.com/watch?v=sDipbctxGC4");
+
                     input = Console.ReadLine();
                    
                     
@@ -44,8 +45,7 @@ namespace Tetris
 
                 Grid.ClearFullRows();
                 Tetrominos.DrawBoard();
-                Tetrominos.SpeedIncrease();
-                Thread.Sleep(Tetrominos.fallIncrease);
+                Thread.Sleep(Math.Max(50, 400 - (Grid.score * 20)));
                 Tetrominos.MovePiece(0, 1);
             
             }

@@ -30,13 +30,13 @@ public class Tetrominos
 
     public static ConsoleColor[] pieceColors =
     {
-    ConsoleColor.Yellow,    // Square (O)
-    ConsoleColor.Cyan,      // Long (I)
-    ConsoleColor.Magenta,   // T piece
-    ConsoleColor.Blue,      // J block
-    ConsoleColor.DarkYellow,// L block
-    ConsoleColor.Green,     // S block
-    ConsoleColor.Red        // Z block
+    ConsoleColor.Yellow,    
+    ConsoleColor.Cyan,      
+    ConsoleColor.Magenta,   
+    ConsoleColor.Blue,      
+    ConsoleColor.DarkYellow,
+    ConsoleColor.Green,     
+    ConsoleColor.Red        
     };
 
 
@@ -105,7 +105,7 @@ public class Tetrominos
     }
 
 
-    private static bool CanRotate((int x, int y)[] rotatedPiece)
+    public static bool CanRotate((int x, int y)[] rotatedPiece)
     {
         foreach (var (px, py) in rotatedPiece)
         {
@@ -162,15 +162,6 @@ public class Tetrominos
             }
             Console.ResetColor();
         
-    }
-    public static int fallIncrease = 400;
-
-    public static void SpeedIncrease()
-    {
-        int fallIncrease = Math.Max(50, 400 - (Grid.score * 20));
-
-        
-
     }
 
     public static void ReadInput()              //this is for inputs that determine how the piece move
