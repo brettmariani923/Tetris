@@ -163,7 +163,7 @@ public class Tetrominos
         }
         Console.ResetColor();
         Console.WriteLine();
-        Console.WriteLine($" Score:{Grid.score}");
+        Console.WriteLine($" Score: {Grid.score}");
         Console.WriteLine("    _._     _,-'\"\"`-._\r\n     (,-.`._,'(       |\\`-/|\r\n         `-.-' \\ )-`( , o o)\r\n             `-    \\`_`\"'-");
         if (Grid.score > 10)
         { Console.WriteLine("Not bad!"); }
