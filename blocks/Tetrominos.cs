@@ -165,35 +165,7 @@ public class Tetrominos
         Console.WriteLine();
         Console.WriteLine($" Score: {Grid.score}");
         Console.WriteLine("    _._     _,-'\"\"`-._\r\n     (,-.`._,'(       |\\`-/|\r\n         `-.-' \\ )-`( , o o)\r\n             `-    \\`_`\"'-");
-        if (Grid.score > 10)
-        { Console.WriteLine("Not bad!"); }
-        if (Grid.score > 15)
-        { Console.WriteLine("Good stuff"); }
-        if (Grid.score > 20)
-        { Console.WriteLine("You're on fire!!!"); }
-        if (Grid.score > 23)
-        { Console.WriteLine("How is this possible!?!"); }
-        if (Grid.score > 25)
-        { Console.WriteLine("You dont know what you're doing, boy!!"); }
-        if (Grid.score > 26)
-        { Console.WriteLine("STOP IT!!!"); }
-        if (Grid.score > 27)
-        { Console.WriteLine("YOU MUST STOP NOW!!"); }
-        if (Grid.score > 28)
-        { Console.WriteLine("If you go any further..."); }
-        if (Grid.score > 29)
-        { Console.WriteLine("YOU'RE GONNA BEAT MY HIGH SCORE"); }
-        if (Grid.score > 30)
-        { Console.WriteLine("NOOOOOOOOOOOOOOOOO"); }
-        if (Grid.score >31)
-        { Console.WriteLine("      ,,,,,,,\r\n     _|||||||_\r\n    +*+*+*+*+*+\r\n    }         {\r\n    +*+*+*+*+*+\r\n        ) (\r\n       /___\\"); }
-        if (Grid.score > 40)
-        { Console.WriteLine("      ,,,,,,,\r\n     _|||||||_\r\n    +*+*+*+*+*+\r\n    }         {\r\n    +*+*+*+*+*+\r\n        ) (\r\n       /___\\"); }
-        if (Grid.score > 50)
-        { Console.WriteLine("      ,,,,,,,\r\n     _|||||||_\r\n    +*+*+*+*+*+\r\n    }         {\r\n    +*+*+*+*+*+\r\n        ) (\r\n       /___\\"); }
-        if (Grid.score > 60)
-        { Console.WriteLine("      ,,,,,,,\r\n     _|||||||_\r\n    +*+*+*+*+*+\r\n    }         {\r\n    +*+*+*+*+*+\r\n        ) (\r\n       /___\\"); }
-
+       
 
 
 
