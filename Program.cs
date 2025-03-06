@@ -45,13 +45,19 @@ namespace Tetris
                     break;
 
                 }
-                
 
-                Grid.ClearFullRows();
-                Tetrominos.DrawBoard();
-                Thread.Sleep(Math.Max(50, 400 - (Grid.score * 10)));
-                Tetrominos.MovePiece(0, 1);
-            
+                if (!Tetrominos.pause)
+                {
+                    Grid.ClearFullRows();
+                    Tetrominos.DrawBoard();
+                    Thread.Sleep(Math.Max(50, 400 - (Grid.score * 10)));
+                    Tetrominos.MovePiece(0, 1);
+                }
+                else
+                {
+                    
+                    Thread.Sleep(100);
+                }
             }
             Console.SetCursorPosition(0, 0);
             goto Start;

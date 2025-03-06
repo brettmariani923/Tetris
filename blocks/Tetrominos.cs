@@ -166,21 +166,28 @@ public class Tetrominos
         Console.WriteLine($" Score: {Grid.score}");
         Console.WriteLine("    _._     _,-'\"\"`-._\r\n     (,-.`._,'(       |\\`-/|\r\n         `-.-' \\ )-`( , o o)\r\n             `-    \\`_`\"'-");
        
-
-
-
-
     }
+
+    public static bool pause = false;
+
 
     public static void ReadInput()              //this is for inputs that determine how the piece move
     {                                           //currently i have an up input just so i can play around with it
         while (!gameOver)                       //later i'll change that
         {
             var key = Console.ReadKey(true).Key;
+
+          
             if (key == ConsoleKey.LeftArrow) MovePiece(-1, 0);
             if (key == ConsoleKey.RightArrow) MovePiece(1, 0);
             if (key == ConsoleKey.DownArrow) MovePiece(0, 1);
             if (key == ConsoleKey.UpArrow) RotatePiece();
+            if (key == ConsoleKey.Spacebar)
+            {
+                pause = !pause;
+                Console.Clear();
+                Console.WriteLine("P A U S E ");
+            }
         }
     }
 }
