@@ -159,9 +159,11 @@ public class Tetrominos
                 }
                 Console.WriteLine();
 
-            }
-            Console.ResetColor();
-        
+        }
+        Console.ResetColor();
+        Console.WriteLine();
+        Console.WriteLine($" Score:{Grid.score}");
+
     }
 
     public static void ReadInput()              //this is for inputs that determine how the piece move
