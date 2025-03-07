@@ -17,11 +17,18 @@ namespace Tetris
 
         private static IWavePlayer waveOut;
         private static AudioFileReader audioFile;
+        private static string[] playlist =
+        {
+          "35. 7 PM.mp3",
+          "3-54 Time Minigame - Timer Set!.mp3",
+          "3-32 Museum - Welcome to the Museum!.mp3",
+        };
+        private static int currentSongIndex = 0;
+          
 
         public static void Main(string[] args)
         {
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "3-32 Museum - Welcome to the Museum!.mp3");
-            PlayBackgroundMusic(filePath);
+            PlayBackgroundMusic();
 
             waveOut?.Stop();
 
@@ -72,33 +79,51 @@ namespace Tetris
             Console.SetCursorPosition(0, 0);
             goto Start;
         }
-        private static void PlayBackgroundMusic(string filePath)
+
+        private static void PlayBackgroundMusic()
         {
             try
             {
-                if (!File.Exists(filePath))
-                {
-                    Console.WriteLine("Error: MP3 file not found at " + filePath);
-                    return;
-                }
-
-                waveOut = new WaveOutEvent();
-                audioFile = new AudioFileReader(filePath);
-
-                // Loop the music when it stops
-                waveOut.PlaybackStopped += (s, e) =>
-                {
-                    audioFile.Position = 0; // Restart from the beginning
-                    waveOut.Play();
-                };
-
-                waveOut.Init(audioFile);
-                waveOut.Play();
+                PlaySong(currentSongIndex);
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error playing sound: {ex.Message}");
             }
+        }
+
+        private static void PlaySong(int index)
+        {
+            if (waveOut != null)
+            {
+                waveOut.Dispose();
+                audioFile.Dispose();
+            }
+
+            if (index >= playlist.Length)
+            {
+                currentSongIndex = 0; // Restart playlist if at the end
+            }
+
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, playlist[currentSongIndex]);
+
+            if (!File.Exists(filePath))
+            {
+                Console.WriteLine("Error: MP3 file not found at " + filePath);
+                return;
+            }
+
+            waveOut = new WaveOutEvent();
+            audioFile = new AudioFileReader(filePath);
+
+            waveOut.PlaybackStopped += (s, e) =>
+            {
+                currentSongIndex = (currentSongIndex + 1) % playlist.Length; // Move to next song
+                PlaySong(currentSongIndex);
+            };
+
+            waveOut.Init(audioFile);
+            waveOut.Play();
         }
 
     }
