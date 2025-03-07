@@ -1,36 +1,25 @@
 ﻿using System;
-using System.Globalization;
-
-using System;
 using System.Threading;
-using System.Diagnostics.Metrics;
-using System.Threading.Tasks.Sources;
-using System.ComponentModel.Design.Serialization;
 using NAudio.Wave;
-using System.Diagnostics;
-
+using System.IO;
 
 namespace Tetris
 {
     public class Program
     {
-
         private static IWavePlayer waveOut;
         private static AudioFileReader audioFile;
         private static string[] playlist =
         {
-          "35. 7 PM.mp3",
-          "3-54 Time Minigame - Timer Set!.mp3",
-          "3-32 Museum - Welcome to the Museum!.mp3",
+            "7PM.mp3",
+            "3-54 Time Minigame - Timer Set!.mp3",
+            "3-32 Museum - Welcome to the Museum!.mp3",
         };
-        private static int currentSongIndex = 0;
-          
+        private static Random random = new Random();
 
         public static void Main(string[] args)
         {
             PlayBackgroundMusic();
-
-            waveOut?.Stop();
 
         Start:
             string input;
@@ -40,7 +29,6 @@ namespace Tetris
             inputThread.Start();
             Console.SetCursorPosition(0, 0);
             Console.CursorVisible = false;
-           
 
             while (true)
             {
@@ -49,18 +37,18 @@ namespace Tetris
                     Console.Clear();
                     Console.WriteLine("G A M E  O V E R");
                     Console.WriteLine($"Score: {Grid.score}");
-                 
                     Console.WriteLine("www.youtube.com/watch?v=sDipbctxGC4");
-                  
-                   
                     Console.WriteLine("        .\r\n       -.\\_.--._.______.-------.___.---------.___\r\n       )`.                                       `-._\r\n      (                                              `---.\r\n      /o                                                  `.\r\n     (                                                      \\\r\n   _.'`.  _                                                  L\r\n   .'/| \"\" \"\"\"\"._                                            |\r\n      |          \\             |                             J\r\n                  \\-._          \\                             L\r\n                  /   `-.        \\                            J\r\n                 /      /`-.      )_                           `\r\n                /    .-'    `    J  \"\"\"\"-----.`-._             |\\            \r\n              .'   .'        L   F            `-. `-.___        \\`.\r\n           ._/   .'          )  )                `-    .'\"\"\"\"`.  \\)\r\n__________((  _.'__       .-'  J              _.-'   .'        `. \\\r\n                   \"\"\"\"\"\"\"((  .'--.__________(   _.-'___________)..|----------------._____\r\n                            \"\"                \"\"\"               ``U'\r\n");
                     Console.WriteLine("Brett Mariani 2025");
 
                     input = Console.ReadLine();
-                   
-                    
-                    break;
-
+                    if (input == "yes")
+                    {
+                        Console.Clear();
+                        goto Start;
+                    }
+                    else
+                        break;
                 }
 
                 if (!Tetrominos.pause)
@@ -72,7 +60,6 @@ namespace Tetris
                 }
                 else
                 {
-                    
                     Thread.Sleep(100);
                 }
             }
@@ -84,7 +71,7 @@ namespace Tetris
         {
             try
             {
-                PlaySong(currentSongIndex);
+                PlayRandomSong();
             }
             catch (Exception ex)
             {
@@ -92,7 +79,7 @@ namespace Tetris
             }
         }
 
-        private static void PlaySong(int index)
+        private static void PlayRandomSong()
         {
             if (waveOut != null)
             {
@@ -100,12 +87,8 @@ namespace Tetris
                 audioFile.Dispose();
             }
 
-            if (index >= playlist.Length)
-            {
-                currentSongIndex = 0; // Restart playlist if at the end
-            }
-
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, playlist[currentSongIndex]);
+            int randomIndex = random.Next(playlist.Length); // Get a random index
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, playlist[randomIndex]);
 
             if (!File.Exists(filePath))
             {
@@ -118,13 +101,11 @@ namespace Tetris
 
             waveOut.PlaybackStopped += (s, e) =>
             {
-                currentSongIndex = (currentSongIndex + 1) % playlist.Length; // Move to next song
-                PlaySong(currentSongIndex);
+                PlayRandomSong(); // Play another random song when current one ends
             };
 
             waveOut.Init(audioFile);
             waveOut.Play();
         }
-
     }
 }

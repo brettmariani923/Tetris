@@ -170,6 +170,7 @@ public class Tetrominos
 
     public static bool pause = false;
 
+   
 
     public static void ReadInput()              //this is for inputs that determine how the piece move
     {                                           //currently i have an up input just so i can play around with it
