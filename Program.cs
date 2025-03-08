@@ -11,8 +11,8 @@ namespace Tetris
         private static AudioFileReader audioFile;
         private static string[] playlist =
         {
-            "7PM.mp3",
-            "3-54 Time Minigame - Timer Set!.mp3",
+            "7pm.mp3",
+            "9pm.mp3",
             "3-32 Museum - Welcome to the Museum!.mp3",
         };
         private static Random random = new Random();
@@ -37,6 +37,7 @@ namespace Tetris
                     Console.Clear();
                     Console.WriteLine("G A M E  O V E R");
                     Console.WriteLine($"Score: {Grid.score}");
+                    Console.WriteLine();
                     Console.WriteLine("www.youtube.com/watch?v=sDipbctxGC4");
                     Console.WriteLine("        .\r\n       -.\\_.--._.______.-------.___.---------.___\r\n       )`.                                       `-._\r\n      (                                              `---.\r\n      /o                                                  `.\r\n     (                                                      \\\r\n   _.'`.  _                                                  L\r\n   .'/| \"\" \"\"\"\"._                                            |\r\n      |          \\             |                             J\r\n                  \\-._          \\                             L\r\n                  /   `-.        \\                            J\r\n                 /      /`-.      )_                           `\r\n                /    .-'    `    J  \"\"\"\"-----.`-._             |\\            \r\n              .'   .'        L   F            `-. `-.___        \\`.\r\n           ._/   .'          )  )                `-    .'\"\"\"\"`.  \\)\r\n__________((  _.'__       .-'  J              _.-'   .'        `. \\\r\n                   \"\"\"\"\"\"\"((  .'--.__________(   _.-'___________)..|----------------._____\r\n                            \"\"                \"\"\"               ``U'\r\n");
                     Console.WriteLine("Brett Mariani 2025");
