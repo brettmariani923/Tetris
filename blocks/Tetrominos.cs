@@ -133,16 +133,14 @@ public class Tetrominos
         int boardWidth = width;
         int boardHeight = height;
 
-        int startX = 0; // Left margin for the box
-        int startY = 0; // Top margin for the box
+        int startX = 0; 
+        int startY = 0; 
 
-        Console.ForegroundColor = ConsoleColor.White; // Set border color
+        Console.ForegroundColor = ConsoleColor.White; 
 
-        // Draw top border
         Console.SetCursorPosition(startX, startY);
         Console.Write("╔" + new string('═', boardWidth) + "╗");
 
-        // Draw side borders
         for (int i = 0; i < boardHeight; i++)
         {
             Console.SetCursorPosition(startX, startY + i + 1);
@@ -151,11 +149,10 @@ public class Tetrominos
             Console.Write("║");
         }
 
-        // Draw bottom border
         Console.SetCursorPosition(startX, startY + boardHeight + 1);
         Console.Write("╚" + new string('═', boardWidth) + "╝");
 
-        Console.ResetColor(); // Reset color after drawing
+        Console.ResetColor(); 
     }
 
     public static void DrawBoard()                  //wrote about half of this, got some help with the part that determines where the piece is.
@@ -202,7 +199,7 @@ public class Tetrominos
         Console.WriteLine($"  Score: {Grid.score}");
         Console.WriteLine("    _._     _,-'\"\"`-._\r\n     (,-.`._,'(       |\\`-/|\r\n         `-.-' \\ )-`( , o o)\r\n             `-    \\`_`\"'-");
 
-        Console.SetCursorPosition(textX, textY); if (Grid.score > 10)
+        Console.SetCursorPosition(textX, textY ); if (Grid.score > 10)
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Nice!");
@@ -216,28 +213,28 @@ public class Tetrominos
         };
         Console.ForegroundColor = ConsoleColor.White;
 
-        Console.SetCursorPosition(textX, textY + 3); if (Grid.score > 30)
+        Console.SetCursorPosition(textX, textY + 4); if (Grid.score > 30)
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Excellent!");
         }
         Console.ForegroundColor = ConsoleColor.White;
 
-        Console.SetCursorPosition(textX, textY + 4); if (Grid.score > 40)
+        Console.SetCursorPosition(textX, textY + 6); if (Grid.score > 40)
         {
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("Fantastic!");
         }
         Console.ForegroundColor = ConsoleColor.White;
 
-        Console.SetCursorPosition(textX, textY + 5); if (Grid.score > 50)
+        Console.SetCursorPosition(textX, textY + 8); if (Grid.score > 50)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Increrdible!!");
         }
         Console.ForegroundColor = ConsoleColor.White;
 
-        Console.SetCursorPosition(textX, textY + 6); if (Grid.score > 60)
+        Console.SetCursorPosition(textX, textY + 10); if (Grid.score > 60)
         {
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("Out of this world!!");
