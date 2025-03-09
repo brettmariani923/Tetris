@@ -2,6 +2,7 @@
 using System.Threading;
 using NAudio.Wave;
 using System.IO;
+using System.Diagnostics;
 
 namespace Tetris
 {
@@ -89,7 +90,9 @@ namespace Tetris
                 audioFile.Dispose();
             }
 
-            string musicDirectory = @"C:\Users\brett\Source\Repos\Tetris-independent-project-\bin\Debug\net9.0\";
+            // Corrected file path
+            string musicDirectory = @"C:\Users\brett\Source\Repos\Tetris-independent-project-\obj\Audio\";
+
             int randomIndex = random.Next(playlist.Length);
             string filePath = Path.Combine(musicDirectory, playlist[randomIndex]);
 
@@ -102,13 +105,11 @@ namespace Tetris
             waveOut = new WaveOutEvent();
             audioFile = new AudioFileReader(filePath);
 
-            waveOut.PlaybackStopped += (s, e) =>
-            {
-                PlayRandomSong();
-            };
+            waveOut.PlaybackStopped += (s, e) => PlayRandomSong();
 
             waveOut.Init(audioFile);
             waveOut.Play();
         }
+
     }
 }

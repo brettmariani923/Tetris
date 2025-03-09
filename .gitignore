@@ -6,6 +6,9 @@
 # dotenv files
 .env
 
+# Allow audio files in obj/Audio/
+obj/Audio/*.mp3
+
 # User-specific files
 *.rsuser
 *.suo
