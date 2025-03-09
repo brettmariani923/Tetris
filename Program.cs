@@ -81,7 +81,6 @@ namespace Tetris
             }
         }
 
-
         private static void PlayRandomSong()
         {
             if (waveOut != null)
@@ -90,17 +89,14 @@ namespace Tetris
                 audioFile.Dispose();
             }
 
-            // Corrected file path
-            string musicDirectory = @"C:\Users\brett\Source\Repos\Tetris-independent-project-\obj\Audio\";
+            // Get the correct project root directory (move up from bin/Debug/net8.0/)
+            string projectDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
+
+            // Navigate to Assets/Audio/ within the project root
+            string musicDirectory = Path.Combine(projectDirectory, "Assets", "Audio");
 
             int randomIndex = random.Next(playlist.Length);
             string filePath = Path.Combine(musicDirectory, playlist[randomIndex]);
-
-            if (!File.Exists(filePath))
-            {
-                Console.WriteLine("Error: MP3 file not found at " + filePath);
-                return;
-            }
 
             waveOut = new WaveOutEvent();
             audioFile = new AudioFileReader(filePath);
@@ -110,6 +106,7 @@ namespace Tetris
             waveOut.Init(audioFile);
             waveOut.Play();
         }
+
 
     }
 }

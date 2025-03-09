@@ -6,8 +6,15 @@
 # dotenv files
 .env
 
-# Allow audio files in obj/Audio/
-obj/Audio/*.mp3
+# Ignore build artifacts
+bin/
+obj/
+.vs/
+*.user
+*.suo
+
+# Allow audio files in Assets/Audio/
+!Assets/Audio/*.mp3
 
 # User-specific files
 *.rsuser
