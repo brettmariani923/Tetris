@@ -19,8 +19,4 @@
       <PackageReference Include="NAudio" Version="2.2.1" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="bin\Debug\net8.0\" />
-    </ItemGroup>
-
 </Project>
