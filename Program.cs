@@ -21,7 +21,6 @@ namespace Tetris
         {
             PlayBackgroundMusic();
 
-        Start:
             string input;
             bool gameOver = false;
             Tetrominos.NewPiece();
@@ -47,7 +46,7 @@ namespace Tetris
                     if (input == "yes")
                     {
                         Console.Clear();
-                        goto Start;
+                        
                     }
                     else
                         break;
@@ -66,7 +65,7 @@ namespace Tetris
                 }
             }
             Console.SetCursorPosition(0, 0);
-            goto Start;
+       
         }
 
         private static void PlayBackgroundMusic()
