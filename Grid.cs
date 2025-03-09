@@ -4,7 +4,7 @@ using System.Timers;
 
 namespace Tetris;
 
-public class Grid : BlockPhases
+public class Grid 
 {
     public static int Width = 20;
     public static int Height = 10;
