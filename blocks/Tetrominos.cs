@@ -274,7 +274,6 @@ public class Tetrominos
                 Console.WriteLine("⬆  Up Arrow        - Rotate piece  ");
                 Console.WriteLine("Spacebar           - P A U S E");
                 Console.WriteLine("=================================");
-                Thread.Sleep(100000);
 
                 while (true)
                 {
