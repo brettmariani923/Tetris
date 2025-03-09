@@ -80,6 +80,7 @@ namespace Tetris
             }
         }
 
+
         private static void PlayRandomSong()
         {
             if (waveOut != null)
@@ -88,8 +89,9 @@ namespace Tetris
                 audioFile.Dispose();
             }
 
-            int randomIndex = random.Next(playlist.Length); // Get a random index
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, playlist[randomIndex]);
+            string musicDirectory = @"C:\Users\brett\Source\Repos\Tetris-independent-project-\bin\Debug\net9.0\";
+            int randomIndex = random.Next(playlist.Length);
+            string filePath = Path.Combine(musicDirectory, playlist[randomIndex]);
 
             if (!File.Exists(filePath))
             {
@@ -102,7 +104,7 @@ namespace Tetris
 
             waveOut.PlaybackStopped += (s, e) =>
             {
-                PlayRandomSong(); // Play another random song when current one ends
+                PlayRandomSong();
             };
 
             waveOut.Init(audioFile);
