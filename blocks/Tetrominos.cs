@@ -264,8 +264,30 @@ public class Tetrominos
             {
                 pause = !pause;
                 Console.Clear();
-                Console.WriteLine("P A U S E ");
+                Console.WriteLine("            P A U S E ");
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine("======== TETRIS CONTROLS ========");
+                Console.WriteLine("⬅  Left Arrow      - Move left ");
+                Console.WriteLine("➡  Right Arrow     - Move right ");
+                Console.WriteLine("⬇  Down Arrow      - Soft drop  ");
+                Console.WriteLine("⬆  Up Arrow        - Rotate piece  ");
+                Console.WriteLine("Spacebar           - P A U S E");
+                Console.WriteLine("=================================");
+                Thread.Sleep(100000);
+
+                while (true)
+                {
+                    var resumeKey = Console.ReadKey(true).Key;
+                    if (resumeKey == ConsoleKey.Spacebar)
+                    {
+                        pause = false;
+                        Console.Clear();
+                        break;
+                    }
+                }
             }
+            
         }
     }
 }
