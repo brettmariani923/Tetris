@@ -264,7 +264,7 @@ public class Tetrominos
             {
                 pause = !pause;
                 Console.Clear();
-                Console.WriteLine("            P A U S E ");
+                Console.WriteLine("           P A U S E ");
                 Console.WriteLine();
                 Console.WriteLine();
                 Console.WriteLine("======== TETRIS CONTROLS ========");
@@ -274,6 +274,11 @@ public class Tetrominos
                 Console.WriteLine("⬆  Up Arrow        - Rotate piece  ");
                 Console.WriteLine("Spacebar           - P A U S E");
                 Console.WriteLine("=================================");
+                Console.WriteLine(". . . . . . .");
+                Console.WriteLine();
+                Console.WriteLine($"  Score: {Grid.score}");
+                Console.WriteLine("    _._     _,-'\"\"`-._\r\n     (,-.`._,'(       |\\`-/|\r\n         `-.-' \\ )-`( , o o)\r\n             `-    \\`_`\"'-");
+
 
                 while (true)
                 {

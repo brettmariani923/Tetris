@@ -38,6 +38,7 @@ namespace Tetris
                     Console.WriteLine("G A M E  O V E R");
                     Console.WriteLine($"Score: {Grid.score}");
                     Console.WriteLine();
+                    Console.WriteLine();
                     Console.WriteLine("www.youtube.com/watch?v=sDipbctxGC4");
                     Console.WriteLine("        .\r\n       -.\\_.--._.______.-------.___.---------.___\r\n       )`.                                       `-._\r\n      (                                              `---.\r\n      /o                                                  `.\r\n     (                                                      \\\r\n   _.'`.  _                                                  L\r\n   .'/| \"\" \"\"\"\"._                                            |\r\n      |          \\             |                             J\r\n                  \\-._          \\                             L\r\n                  /   `-.        \\                            J\r\n                 /      /`-.      )_                           `\r\n                /    .-'    `    J  \"\"\"\"-----.`-._             |\\            \r\n              .'   .'        L   F            `-. `-.___        \\`.\r\n           ._/   .'          )  )                `-    .'\"\"\"\"`.  \\)\r\n__________((  _.'__       .-'  J              _.-'   .'        `. \\\r\n                   \"\"\"\"\"\"\"((  .'--.__________(   _.-'___________)..|----------------._____\r\n                            \"\"                \"\"\"               ``U'\r\n");
                     Console.WriteLine("Brett Mariani 2025");
@@ -53,7 +54,7 @@ namespace Tetris
                 }
 
                 if (!Tetrominos.pause)
-                {
+                { 
                     Grid.ClearFullRows();
                     Tetrominos.DrawBoard();
                     Thread.Sleep(Math.Max(50, 400 - (Grid.score * 10)));
