@@ -89,10 +89,8 @@ namespace Tetris
                 audioFile.Dispose();
             }
 
-            // Get the correct project root directory (move up from bin/Debug/net8.0/)
             string projectDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
 
-            // Navigate to Assets/Audio/ within the project root
             string musicDirectory = Path.Combine(projectDirectory, "Assets", "Audio");
 
             int randomIndex = random.Next(playlist.Length);
