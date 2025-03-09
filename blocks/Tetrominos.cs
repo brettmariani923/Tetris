@@ -189,8 +189,8 @@ public class Tetrominos
             }
 
             Console.WriteLine();
-          
-           
+
+
         }
         int textX = width + 4;
         int textY = 2;
@@ -199,23 +199,23 @@ public class Tetrominos
         Console.WriteLine($"  Score: {Grid.score}");
         Console.WriteLine("    _._     _,-'\"\"`-._\r\n     (,-.`._,'(       |\\`-/|\r\n         `-.-' \\ )-`( , o o)\r\n             `-    \\`_`\"'-");
 
-        Console.SetCursorPosition(textX, textY ); if (Grid.score > 10)
+        Console.SetCursorPosition(textX, textY); if (Grid.score > 10)
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Nice!");
-            
+
         }
         Console.ForegroundColor = ConsoleColor.White;
         Console.SetCursorPosition(textX, textY + 2); if (Grid.score > 20)
         {
-            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Great job!");
         };
         Console.ForegroundColor = ConsoleColor.White;
 
         Console.SetCursorPosition(textX, textY + 4); if (Grid.score > 30)
         {
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Excellent!");
         }
         Console.ForegroundColor = ConsoleColor.White;
@@ -240,12 +240,10 @@ public class Tetrominos
             Console.WriteLine("Out of this world!!");
         }
         Console.ForegroundColor = ConsoleColor.White;
-
-
-
-
-
     }
+
+
+    
 
     public static bool pause = false;
 
