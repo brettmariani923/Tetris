@@ -457,11 +457,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\brett\\source\\repos\\Tetris-independent-project-\\Tetris.csproj",
+      "projectUniqueName": "C:\\Users\\brett\\Source\\Repos\\Tetris-independent-project-\\Tetris.csproj",
       "projectName": "Tetris",
-      "projectPath": "C:\\Users\\brett\\source\\repos\\Tetris-independent-project-\\Tetris.csproj",
+      "projectPath": "C:\\Users\\brett\\Source\\Repos\\Tetris-independent-project-\\Tetris.csproj",
       "packagesPath": "C:\\Users\\brett\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\brett\\source\\repos\\Tetris-independent-project-\\obj\\",
+      "outputPath": "C:\\Users\\brett\\Source\\Repos\\Tetris-independent-project-\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

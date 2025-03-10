@@ -11,7 +11,7 @@ bin/
 obj/
 .vs/
 *.user
-*.suo
+*.suo`
 
 # Allow audio files in Assets/Audio/
 !Assets/Audio/*.mp3
