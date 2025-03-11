@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dIUBA9H0sl0=",
+  "dgSpecHash": "/LydPGBgzcA=",
   "success": true,
-  "projectFilePath": "C:\\Users\\brett\\Source\\Repos\\Tetris-independent-project-\\Tetris.csproj",
+  "projectFilePath": "C:\\Users\\brett\\RiderProjects\\Tetris-independent-project-\\Tetris.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\brett\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\brett\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
