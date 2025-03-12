@@ -279,22 +279,8 @@ public class Tetrominos
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("🦕");
         }
-        Console.SetCursorPosition(textX, textY + 18); if (Grid.score > 140)
-        {
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("🦕");
-        }
-        Console.SetCursorPosition(textX + 2, textY + 18); if (Grid.score > 150)
-        {
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("🦕");
-        }
-        Console.SetCursorPosition(textX + 4, textY + 18); if (Grid.score > 160)
-        {
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("🦕");
-        }
-        Console.SetCursorPosition(textX, textY + 19); if (Grid.score > 170)
+        
+        Console.SetCursorPosition(textX, textY + 18); if (Grid.score > 170)
         {
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("You're Unstoppable! 🦖");
