@@ -1,10 +1,12 @@
 ﻿using System.Drawing;
 using System.Threading.Tasks.Sources;
+using System.Text;
 
 namespace Tetris;
 
 public class Tetrominos
 {
+
 
     public static (int x, int y)[][] piecesPool = new (int, int)[][]
    {
@@ -158,6 +160,8 @@ public class Tetrominos
     public static void DrawBoard()                  //wrote about half of this, got some help with the part that determines where the piece is.
                                                     //this draws the gameboard and checks if the grid is currently occupied by a piece
     {
+        System.Console.OutputEncoding = System.Text.Encoding.UTF8;
+
         DrawBorder();
         Console.SetCursorPosition(0, 0);
 
@@ -184,7 +188,7 @@ public class Tetrominos
                     color = Grid.ColorGrid[y, x];
 
                 Console.ForegroundColor = color;
-                Console.Write(isPiece || Grid.NewGrid[y, x] != 0 ? "X" : ".");
+                Console.Write(isPiece || Grid.NewGrid[y, x] != 0 ? "◯" : ".");
 
             }
 
@@ -203,7 +207,6 @@ public class Tetrominos
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Nice!");
-
         }
         Console.ForegroundColor = ConsoleColor.White;
         Console.SetCursorPosition(textX, textY + 2); if (Grid.score > 20)
@@ -240,6 +243,65 @@ public class Tetrominos
             Console.WriteLine("Out of this world!!");
         }
         Console.ForegroundColor = ConsoleColor.White;
+
+        Console.SetCursorPosition(textX, textY + 12); if (Grid.score > 70)
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("Dino-mite!");
+        }
+        Console.SetCursorPosition(textX, textY + 14); if (Grid.score > 80)
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("🦕");
+        }
+        Console.SetCursorPosition(textX + 2, textY + 14); if (Grid.score > 90)
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("🦕");
+        }
+        Console.SetCursorPosition(textX + 4, textY + 14); if (Grid.score > 100)
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("🦕");
+        }
+        Console.SetCursorPosition(textX, textY + 16); if (Grid.score > 110)
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("🦕");
+        }
+        Console.SetCursorPosition(textX +2, textY + 16); if (Grid.score > 120)
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("🦕");
+        }
+        Console.SetCursorPosition(textX + 4, textY + 16); if (Grid.score > 130)
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("🦕");
+        }
+        Console.SetCursorPosition(textX, textY + 18); if (Grid.score > 140)
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("🦕");
+        }
+        Console.SetCursorPosition(textX + 2, textY + 18); if (Grid.score > 150)
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("🦕");
+        }
+        Console.SetCursorPosition(textX + 4, textY + 18); if (Grid.score > 160)
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("🦕");
+        }
+        Console.SetCursorPosition(textX, textY + 19); if (Grid.score > 170)
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("You're Unstoppable! 🦖");
+        }
+        
+        Console.ForegroundColor = ConsoleColor.White;
+
     }
 
 

@@ -57,7 +57,7 @@ namespace Tetris
                 { 
                     Grid.ClearFullRows();
                     Tetrominos.DrawBoard();
-                    Thread.Sleep(Math.Max(86, 400 - (Grid.score * 10)));
+                    Thread.Sleep(Math.Max(200, 400 - (Grid.score * 10)));
                     Tetrominos.MovePiece(0, 1);
                 }
                 else
