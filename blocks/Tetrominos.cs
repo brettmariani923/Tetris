@@ -246,7 +246,7 @@ public class Tetrominos
 
         Console.SetCursorPosition(textX, textY + 12); if (Grid.score > 70)
         {
-            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("Dino-mite!");
         }
         Console.SetCursorPosition(textX, textY + 14); if (Grid.score > 80)
@@ -282,7 +282,7 @@ public class Tetrominos
         
         Console.SetCursorPosition(textX, textY + 18); if (Grid.score > 170)
         {
-            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("You're Unstoppable! 🦖");
         }
         
@@ -317,7 +317,7 @@ public class Tetrominos
                 Console.WriteLine();
                 Console.WriteLine("======== TETRIS CONTROLS ========");
                 Console.WriteLine("⬅  Left Arrow      - Move left ");
-                Console.WriteLine("➡  Right Arrow     - Move right ");
+                Console.WriteLine("🠮 Right Arrow     - Move right ");
                 Console.WriteLine("⬇  Down Arrow      - Soft drop  ");
                 Console.WriteLine("⬆  Up Arrow        - Rotate piece  ");
                 Console.WriteLine("Spacebar           - P A U S E");
