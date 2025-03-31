@@ -3,8 +3,6 @@ unicode charachter rewards, eye catching ascii art of big chunky cats, and much 
 but as you clear lines the speed continues to increase and the game becomes quite challenging. But if you'd like more of a challenge,
 feel free to turn up the difficulty for yourself in the program file! Thanks for looking and I hope you like it!
 
-            Controls
-
 ======== TETRIS CONTROLS ========
 ⬅  Left Arrow      - Move left 
 ➡  Right Arrow     - Move right 
