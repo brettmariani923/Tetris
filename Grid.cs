@@ -17,7 +17,7 @@ public class Grid
     public static int score = 0;
 
 
-    public int this[int w, int h]               //this was based off of something i found online to help me out with how I would make it.
+    public int this[int w, int h]               
     {
         get => NewGrid[w, h];
         set => NewGrid[w, h] = value;
@@ -39,14 +39,14 @@ public class Grid
 
     public bool IsCellEmpty(int w, int h)
     {
-        return NewGrid[w, h] == 0;  //w, h will go through cells checking for empties 
+        return NewGrid[w, h] == 0;   
     }
     
     public static bool IsRowFull(int w)
     {
-        for (int h = 0; h < Height; h++)    //using incrementation to check if rows are full
+        for (int h = 0; h < Height; h++)    
         {
-            if (NewGrid[w, h] == 0)     //if cell is empty row isnt full
+            if (NewGrid[w, h] == 0)     
             {
                 return false;
             }
@@ -60,7 +60,7 @@ public class Grid
     {
         for (int h = 0; h < Height; h++)
         {
-            if (NewGrid[w, h] != 0)         //if cell isnt empty row is full
+            if (NewGrid[w, h] != 0)         
             {
                 return false;
             }
@@ -125,9 +125,9 @@ public class Grid
         return clear;
     }
 
-    public static bool IsGameOver()                             //Added a check
+    public static bool IsGameOver()                             
     {                                                          
-        for (int h = 0; h < Height; h++)                         // doesn't trigger early
+        for (int h = 0; h < Height; h++)                       
         {
             if (NewGrid[0, h] != 0)
             {

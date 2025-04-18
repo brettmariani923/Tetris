@@ -105,45 +105,5 @@ namespace Tetris
             waveOut.Play();
         }
 
-        static int selectedOption = 0; // 0 = Play Again, 1 = Exit
-
-        public static void ShowGameOverScreen()
-        {
-            
-
-            while (true)
-            {
-                // Display options
-                Console.SetCursorPosition(5,20);
-                Console.WriteLine(selectedOption == 0 ? "> Play Again" : "  Play Again");
-                Console.WriteLine(selectedOption == 1 ? "> Exit" : "  Exit");
-
-                // Handle user input
-                ConsoleKey key = Console.ReadKey(true).Key;
-                switch (key)
-                {
-                    case ConsoleKey.UpArrow:
-                    case ConsoleKey.LeftArrow:
-                        selectedOption = Math.Max(0, selectedOption - 1);
-                        break;
-                    case ConsoleKey.DownArrow:
-                    case ConsoleKey.RightArrow:
-                        selectedOption = Math.Min(1, selectedOption + 1);
-                        break;
-                    case ConsoleKey.Enter:
-                        if (selectedOption == 0)
-                        {
-                            Main(null);
-                        }
-                        else
-                        {
-                            
-                        }
-                        return;
-                }
-            }
-        }
-
-
     }
 }
