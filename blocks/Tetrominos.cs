@@ -10,6 +10,10 @@ public class Tetrominos
     public static bool pause = false;
     static int currentPieceIndex;
 
+    // The pieces are defined in a 2x2 grid, with the center of the piece at (0,0).
+    // The other points are relative to that. So (1,0) is the square one to the right of (0,0),
+    // (-1,0) is the square one to the left of (0,0), (0,1) is the square one above (0,0), and (0,-1)
+    // is the square one below (0,0), etc.
     public static (int x, int y)[][] piecesPool = new (int, int)[][]
    {
         new [] { (0,0), (1,0), (0,1), (1,1) }, 
@@ -36,6 +40,10 @@ public class Tetrominos
     ConsoleColor.Red
     };
 
+    //The CanMove method checks if the piece can move to a new position.
+    //It checks if the new position is within the bounds of the grid and if there are no other pieces in the way.
+    //If the piece can move, it returns true. Otherwise, it returns false.
+    //It does this by checking each point of the piece against the grid.
     public static bool CanMove(int dx, int dy)                     
     {                                                       
         foreach (var (px, py) in currentPiece)              
@@ -49,6 +57,8 @@ public class Tetrominos
         return true;
     }
 
+    //The NewPiece method generates a new piece by selecting a random piece from the pieces pool.
+    //It sets the position of the new piece to the center of the grid and checks if it can move.
     public static void NewPiece()                                                                         
     {
         currentPieceIndex = random.Next(piecesPool.Length);
@@ -57,6 +67,8 @@ public class Tetrominos
         if (!CanMove(0, 0)) gameOver = true;
     }
 
+    //The PlacePiece method places the current piece on the grid by setting the grid cells to 1
+    //and setting the color of the cells. It does this by iterating through each point of the piece
     static void PlacePiece()                                                                                                                      
     {                                                                         
         ConsoleColor pieceColor = pieceColors[currentPieceIndex];                                                                              
@@ -73,6 +85,8 @@ public class Tetrominos
         }
     }
 
+    //The MovePiece method moves the current piece by a specified amount in the x and y directions.
+    //It checks if the piece can move to the new position and if it can, it updates the position.
     public static void MovePiece(int dx, int dy)        
     {                                                   
         if (CanMove(dx, dy))                            
@@ -89,6 +103,8 @@ public class Tetrominos
         }
     }
 
+    //The CanRotate method checks if the piece can be rotated by checking if the new position of the piece
+    //is within the bounds of the grid and if there are no other pieces in the way.
     public static bool CanRotate((int x, int y)[] rotatedPiece)
     {
         foreach (var (px, py) in rotatedPiece)
@@ -102,6 +118,8 @@ public class Tetrominos
         return true;
     }
 
+    //The RotatePiece method rotates the current piece by swapping the x and y coordinates of each point.
+    //It checks if the piece can be rotated and if it can, it updates the current piece.
     public static void RotatePiece()
     {
         var rotatedPiece = currentPiece
@@ -112,7 +130,11 @@ public class Tetrominos
             currentPiece = rotatedPiece;
     }
 
-    public static void MakeAnother()
+    //The DrawCurrentFrame method draws the current piece and the grid to the console.
+    //It does this by iterating through each point of the piece and checking if it is a piece or part of the grid.
+    //It sets the color of the piece and the grid and draws it to the console.
+
+    public static void DrawCurrentFrame()
     {
         for (int y = 0; y < height; y++)
         {
@@ -143,6 +165,7 @@ public class Tetrominos
         }
     }
 
+    //The ReadInput method reads the input from the user and moves the piece accordingly.
     public static void ReadInput()             
     {                                           
         while (!gameOver)                       

@@ -9,6 +9,8 @@ public class Grid
     public int NewPiece;
     public static int score = 0;
 
+    // The grid is a 2D array of integers, where each cell can be either 0 (empty) or a positive integer (filled).
+    // The IsRowFull method checks if a row is full by checking if all cells in that row are filled (not 0).
     public static bool IsRowFull(int row)
     {
         for (int col = 0; col < width; col++)
@@ -21,6 +23,7 @@ public class Grid
         return true;
     }
 
+    // The ClearRow method clears a row by setting all cells in that row to 0 (empty).
     public static void ClearRow(int row)
     {
         if (IsRowFull(row))
@@ -33,6 +36,7 @@ public class Grid
         }
     }
 
+    // The RowDown method shifts all rows above the cleared row down by a specified offset.
     public static void RowDown(int row, int offset)
     {
         for (int col = 0; col < width; col++)
@@ -42,6 +46,8 @@ public class Grid
         }
     }
 
+    // The ClearFullRows method checks each row from the bottom to the top and clears it if it's full.
+    // It also shifts down any rows above the cleared row by the number of cleared rows.
     public static int ClearFullRows()
     {
         int clear = 0;
@@ -61,6 +67,7 @@ public class Grid
         return clear;
     }
 
+    // The IsGameOver method checks if the game is over by checking if any cell in the top row is filled (not 0).
     public static bool IsGameOver()
     {
         for (int col = 0; col < width; col++)
@@ -72,6 +79,9 @@ public class Grid
         }
         return false;
     }
+
+    // The DrawBorder method draws a border around the grid using Unicode characters.
+    // It sets the cursor position and writes the border characters to the console.
     public static void DrawBorder()
     {
         int boardWidth = 10;
@@ -99,13 +109,16 @@ public class Grid
         Console.ResetColor();
     }
 
+    // The DrawBoard method draws the grid to the console by iterating through each cell in the grid.
+    // It sets the cursor position and writes the cell character to the console.
+    // It also draws the current piece and the score.
     public static void DrawBoard()
     {
         System.Console.OutputEncoding = System.Text.Encoding.UTF8;
 
         DrawBorder();
         Console.SetCursorPosition(0, 0);
-        Tetrominos.MakeAnother();
+        Tetrominos.DrawCurrentFrame();
 
         int textX = 10 + 4;
         int textY = 2;
