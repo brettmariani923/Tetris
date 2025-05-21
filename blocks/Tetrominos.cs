@@ -131,7 +131,7 @@ public class Tetrominos
     }
 
     //The DrawCurrentFrame method draws the current piece and the grid to the console.
-    //It does this by iterating through each point of the piece and checking if it is a piece or part of the grid.
+    //It does this by iterating through each point of the board and checking if it is a piece or part of the grid.
     //It sets the color of the piece and the grid and draws it to the console.
 
     public static void DrawCurrentFrame()
