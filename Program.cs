@@ -1,10 +1,4 @@
-﻿using System;
-using System.Threading;
-using NAudio.Wave;
-using System.IO;
-using System.Diagnostics;
-
-namespace Tetris
+﻿namespace Tetris
 {
     public class Program
     {
@@ -41,6 +35,7 @@ namespace Tetris
                     Thread.Sleep(Math.Max(100, 400 - (Grid.score * 10)));
                     Tetrominos.MovePiece(0, 1);
                 }
+
                 else
                 {
                     Thread.Sleep(100);

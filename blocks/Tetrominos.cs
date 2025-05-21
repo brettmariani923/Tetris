@@ -1,8 +1,4 @@
-﻿using System.Drawing;
-using System.Threading.Tasks.Sources;
-using System.Text;
-
-namespace Tetris;
+﻿namespace Tetris;
 
 public class Tetrominos
 {
@@ -11,6 +7,7 @@ public class Tetrominos
     static (int x, int y) positionOfPiece;
     static int width = 10, height = 20;
     static bool gameOver = false;
+    public static bool pause = false;
     static int currentPieceIndex;
 
     public static (int x, int y)[][] piecesPool = new (int, int)[][]
@@ -48,6 +45,7 @@ public class Tetrominos
             if (x < 0 || x >= width || y < 0 || y >= height || (y >= 0 && Grid.newGrid[y, x] != 0))
                 return false;
         }
+
         return true;
     }
 
@@ -82,6 +80,7 @@ public class Tetrominos
             positionOfPiece.x += dx;
             positionOfPiece.y += dy;
         }
+
         else if (dy > 0)
         {
             PlacePiece();
@@ -99,6 +98,7 @@ public class Tetrominos
             if (x < 0 || x >= width || y < 0 || y >= height || (y >= 0 && Grid.newGrid[y, x] != 0))
                 return false;
         }
+
         return true;
     }
 
@@ -112,7 +112,7 @@ public class Tetrominos
             currentPiece = rotatedPiece;
     }
 
-    public static void PieceMover()
+    public static void MakeAnother()
     {
         for (int y = 0; y < height; y++)
         {
@@ -138,11 +138,11 @@ public class Tetrominos
                 Console.Write(isPiece || Grid.newGrid[y, x] != 0 ? "◯" : ".");
 
             }
-            Console.WriteLine();
 
+            Console.WriteLine();
         }
     }
-    public static bool pause = false;
+
     public static void ReadInput()             
     {                                           
         while (!gameOver)                       

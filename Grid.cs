@@ -1,8 +1,4 @@
-﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Timers;
-
-namespace Tetris;
+﻿namespace Tetris;
 
 public class Grid
 {
@@ -13,34 +9,11 @@ public class Grid
     public int NewPiece;
     public static int score = 0;
 
-    public int this[int row, int col]
-    {
-        get => newGrid[row, col];
-        set => newGrid[row, col] = value;
-    }
-
-    public bool IsCellEmpty(int row, int col)
-    {
-        return newGrid[row, col] == 0;
-    }
-
     public static bool IsRowFull(int row)
     {
         for (int col = 0; col < width; col++)
         {
             if (newGrid[row, col] == 0)
-            {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public static bool IsRowEmpty(int row)
-    {
-        for (int col = 0; col < width; col++)
-        {
-            if (newGrid[row, col] != 0)
             {
                 return false;
             }
@@ -56,19 +29,7 @@ public class Grid
             {
                 newGrid[row, col] = 0;
             }
-
             score++;
-        }
-    }
-
-    public static void ClearBoard()
-    {
-        for (int row = 0; row < height; row++)
-        {
-            for (int col = 0; col < width; col++)
-            {
-                newGrid[row, col] = 0;
-            }
         }
     }
 
@@ -142,9 +103,9 @@ public class Grid
     {
         System.Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-        Grid.DrawBorder();
+        DrawBorder();
         Console.SetCursorPosition(0, 0);
-        Tetrominos.PieceMover();
+        Tetrominos.MakeAnother();
 
         int textX = 10 + 4;
         int textY = 2;
