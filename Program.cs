@@ -32,7 +32,6 @@ namespace Tetris
                     Console.WriteLine("Brett Mariani 2025");
 
                     Console.ReadLine();
-                 
                 }
 
                 if (!Tetrominos.pause)

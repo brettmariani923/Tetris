@@ -45,7 +45,7 @@ public class Tetrominos
         {                                                 
             int x = positionOfPiece.x + px + dx;
             int y = positionOfPiece.y + py + dy;
-            if (x < 0 || x >= width || y < 0 || y >= height || (y >= 0 && Grid.NewGrid[y, x] != 0))
+            if (x < 0 || x >= width || y < 0 || y >= height || (y >= 0 && Grid.newGrid[y, x] != 0))
                 return false;
         }
         return true;
@@ -69,8 +69,8 @@ public class Tetrominos
             int y = positionOfPiece.y + py;
             if (y >= 0)
             {
-                Grid.NewGrid[y, x] = 1;
-                Grid.ColorGrid[y, x] = pieceColor;
+                Grid.newGrid[y, x] = 1;
+                Grid.colorGrid[y, x] = pieceColor;
             }
         }
     }
@@ -96,7 +96,7 @@ public class Tetrominos
         {
             int x = positionOfPiece.x + px;
             int y = positionOfPiece.y + py;
-            if (x < 0 || x >= width || y < 0 || y >= height || (y >= 0 && Grid.NewGrid[y, x] != 0))
+            if (x < 0 || x >= width || y < 0 || y >= height || (y >= 0 && Grid.newGrid[y, x] != 0))
                 return false;
         }
         return true;
@@ -131,18 +131,17 @@ public class Tetrominos
                         break;
                     }
                 }
-                if (!isPiece && Grid.NewGrid[y, x] != 0)
-                    color = Grid.ColorGrid[y, x];
+                if (!isPiece && Grid.newGrid[y, x] != 0)
+                    color = Grid.colorGrid[y, x];
 
                 Console.ForegroundColor = color;
-                Console.Write(isPiece || Grid.NewGrid[y, x] != 0 ? "◯" : ".");
+                Console.Write(isPiece || Grid.newGrid[y, x] != 0 ? "◯" : ".");
 
             }
             Console.WriteLine();
 
         }
     }
-
     public static bool pause = false;
     public static void ReadInput()             
     {                                           

@@ -4,60 +4,31 @@ using System.Timers;
 
 namespace Tetris;
 
-public class Grid 
+public class Grid
 {
-    public static int Width = 20;
-    public static int Height = 10;
-    public static int[,] NewGrid = new int[Width, Height];
-    public static ConsoleColor[,] ColorGrid = new ConsoleColor[20, 10];
-    static Random random = new Random();
-    public Position? StartPoint;
+    public static int width = 10;
+    public static int height = 20;
+    public static int[,] newGrid = new int[height, width];
+    public static ConsoleColor[,] colorGrid = new ConsoleColor[height, width];
     public int NewPiece;
-    private static int x;
     public static int score = 0;
 
-    public int this[int w, int h]               
+    public int this[int row, int col]
     {
-        get => NewGrid[w, h];
-        set => NewGrid[w, h] = value;
+        get => newGrid[row, col];
+        set => newGrid[row, col] = value;
     }
 
-    public Position Start                                   
+    public bool IsCellEmpty(int row, int col)
     {
-        get => new (Width = 10 / 2, Height = 20);
-        set => StartPoint = value;
-    }
-    
-    public int WhichBlock
-    {
-        get => random.Next(Tetrominos.piecesPool.Length);
-        set => NewPiece = value;
+        return newGrid[row, col] == 0;
     }
 
-    
-
-    public bool IsCellEmpty(int w, int h)
+    public static bool IsRowFull(int row)
     {
-        return NewGrid[w, h] == 0;   
-    }
-    
-    public static bool IsRowFull(int w)
-    {
-        for (int h = 0; h < Height; h++)    
+        for (int col = 0; col < width; col++)
         {
-            if (NewGrid[w, h] == 0)     
-            {
-                return false;
-            }
-        }
-        return true;
-    }
-    
-    public static bool IsRowEmpty(int w)
-    {
-        for (int h = 0; h < Height; h++)
-        {
-            if (NewGrid[w, h] != 0)         
+            if (newGrid[row, col] == 0)
             {
                 return false;
             }
@@ -65,38 +36,48 @@ public class Grid
         return true;
     }
 
-    public static void ClearRow(int w)
+    public static bool IsRowEmpty(int row)
     {
-        if (IsRowFull(w))
+        for (int col = 0; col < width; col++)
         {
-            for (int h = 0; h < Height; h++)
+            if (newGrid[row, col] != 0)
             {
-                NewGrid[w, h] = 0;
+                return false;
             }
-            
+        }
+        return true;
+    }
+
+    public static void ClearRow(int row)
+    {
+        if (IsRowFull(row))
+        {
+            for (int col = 0; col < width; col++)
+            {
+                newGrid[row, col] = 0;
+            }
+
             score++;
-            
         }
     }
 
     public static void ClearBoard()
     {
-        for (int h = 0; h < Width; h++)
+        for (int row = 0; row < height; row++)
         {
-            for (int w = 0; w < Height; w++)
+            for (int col = 0; col < width; col++)
             {
-                NewGrid[h, w] = 0;
+                newGrid[row, col] = 0;
             }
-            
         }
     }
 
-    public static void RowDown(int w, int rowNumber)
+    public static void RowDown(int row, int offset)
     {
-        for (int h = 0; h < Height; h++)
+        for (int col = 0; col < width; col++)
         {
-            NewGrid[w + rowNumber, h] = NewGrid[w, h];
-            NewGrid[w, h] = 0;
+            newGrid[row + offset, col] = newGrid[row, col];
+            newGrid[row, col] = 0;
         }
     }
 
@@ -104,33 +85,32 @@ public class Grid
     {
         int clear = 0;
 
-        for (int w = Width - 1; w >= 0; w--)
+        for (int row = height - 1; row >= 0; row--)
         {
-            if (IsRowFull(w))
+            if (IsRowFull(row))
             {
-                ClearRow(w);
+                ClearRow(row);
                 clear++;
             }
             else if (clear > 0)
             {
-                RowDown(w, clear);
+                RowDown(row, clear);
             }
         }
         return clear;
     }
 
-    public static bool IsGameOver()                             
-    {                                                          
-        for (int h = 0; h < Height; h++)                       
+    public static bool IsGameOver()
+    {
+        for (int col = 0; col < width; col++)
         {
-            if (NewGrid[0, h] != 0)
+            if (newGrid[0, col] != 0)
             {
                 return true;
             }
         }
         return false;
     }
-
     public static void DrawBorder()
     {
         int boardWidth = 10;
