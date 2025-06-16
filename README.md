@@ -23,7 +23,7 @@ y↓
  10   . . . . . . . . . . .
 
 
- In the above example, lets assume we are using the t. shaped piece.
+ In the above example, lets assume we are using the t. shaped piece
  (0,0), (-1,0), (1,0), (0,1)
 
  P = static (int x, int y) positionOfPiece; the P value represents the point expressed in the tupple (5,0). This is the starting point that will be the basis from whichc we define the center of our tetromino going forward,
