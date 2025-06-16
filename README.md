@@ -109,9 +109,9 @@ If all blocks can move without issue, then the piece is allowed to move.
 ---
 
 So to put the method in more straightforward terms:
-
-The piece moves by receiving (left and right inputs, and up and down inputs)
 ```
+The piece moves by receiving (left and right inputs, and up and down inputs)
+
 {
     and by using those values, as well as the values foreach (of the blocks on x axis, and the values of the blocks on y axis in the tuple that makes up the tetromino shape)  
     {
@@ -125,7 +125,7 @@ The piece moves by receiving (left and right inputs, and up and down inputs)
         ---
         If any of these scenarios are the case, the piece isn't allowed to move;
     }
-    ---
+    ```
     but if any of these scenarios are not the case, the piece is allowed to move;
 }
 ```
