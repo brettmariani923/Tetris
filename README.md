@@ -116,9 +116,9 @@ The piece moves by receiving (left and right inputs, and up and down inputs)
     and by using these input values, as well as the values foreach (of the offset blocks on the x axis and y axis that make up the tetromino shape)  
     {
         ---
-        we can sum the x value of the anchor point + x axis values for the offset blocks that make up the tetromino + x axis value directional inputs to get the value for int x;
+        we can sum the x value of the anchor point + x axis values for the offset blocks + x axis value directional inputs to get the value for int x;
         ---
-        and we can sum the y value of the anchor point + y axis values for the offset blocks that make up the tetromino + y axis value directional inputs to get the value for int y;
+        and we can sum the y value of the anchor point + y axis values for the offset blocks + y axis value directional inputs to get the value for int y;
         ---
         then we can use the values of int x and int y to determine if (the values of the x axis of the tetris piece are outside the grid on the left on the right,
         or if the sum of the values of y are outside the top of the grid or the bottom of it, or if the piece is wthin the grid but the cell is already occupied (!= 0, 1 means occupied)
