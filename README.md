@@ -116,7 +116,7 @@ The piece moves by receiving (left and right inputs, and up and down inputs)
     and by using these input values, as well as the values foreach (of the offset blocks on the x and y axis that make up the tetromino shape)  
     {
         ---
-        we can sum the x value of the anchor point + x axis values for each  offset block + x axis value directional inputs to get the value for int x;
+        we can sum the x value of the anchor point + x axis values for each offset block + x axis value directional inputs to get the value for int x;
         ---
         and we can sum the y value of the anchor point + y axis value for each offset block + y axis value directional inputs to get the value for int y;
         ---
