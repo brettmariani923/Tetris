@@ -35,7 +35,7 @@ In the above example, lets assume we are using the t. shaped piece
   The P value represents the point expressed in the tuple `(5,0)`. This is the starting point that will be the basis from which we define the center of our tetromino going forward, this anchor point is also the value that the offset blocks use to generate around.
 
 - `X = static (int x, int y)[] currentPiece;`  
-  The variable that holds the piece we are using from the pieces pool. It provides the values that make up our block `[(0,0), (-1,0), (1,0), (0,1)]`, and will help determine the occupied positions of offset blocks that build around anchor point.
+  The variable that holds the piece we are using from the pieces pool. It provides the values that make up our block `[(0,0), (-1,0), (1,0), (0,1)]`, and will help determine the occupied positions of offset blocks that build around the anchor point.
 
 - `.` = empty position
 
@@ -78,11 +78,11 @@ Likewise, if you want to `MovePiece(1,0)`, or in other words to the right one sp
 [6, 1]        // bottom
 ```
 
-Each of these numbers represents a position on the game grid. This is essentially the core logic of the entire game. It is just updating the values of these different arrays to determine where the piece is, and then printing the values to the grid.
+Each of these sets of numbers represents a position on the game grid. This is essentially the core logic of the entire game. It is just updating the values of these different arrays to determine where the piece is, and then printing the values to the grid.
 
 ---
 
-To make sure we can accomplish this and have it work with the game logic, where pieces can't go through other pieces or off the game grid, we need to check if the piece placement is valid.
+To make sure we can accomplish this and have it work correctly with the game logic, where pieces can't go through other pieces or outside the game grid, we need to check if the piece placement is valid.
 
 We can do this using this method:
 
@@ -101,7 +101,7 @@ public static bool CanMove(int dx, int dy)
 ```
 
 The `CanMove` method checks if the piece is allowed to move to a new position.  
-It does this by adding the value of user inputs `(dx, dy)` to the anchor point (center) of the current piece's position `(positionOfPiece)`, and to the value of the offset blocks `(px, py)`.
+It does this by adding the value of user inputs `(dx, dy)` to the anchor point (center) of the current piece's position `(positionOfPiece)`, as well as foreach of the values of the offset blocks `(px, py)`.
 
 If the resulting position is outside the grid or collides with an already occupied cell (`Grid.newGrid[y, x] != 0`), then the piece isn't allowed to move.  
 If all blocks can move without issue, then the piece is allowed to move.
@@ -113,12 +113,12 @@ So to put the method in more straightforward terms:
 The piece moves by receiving (left and right inputs, and up and down inputs)
 
 {
-    and by using those values, as well as the values foreach (of the blocks on x axis, and the values of the blocks on y axis in the tuple that makes up the tetromino shape)  
+    and by using those values, as well as the values foreach (of the offset blocks on the x axis, as well as the values of the offset blocks on the y axis that make up the tetromino shape)  
     {
         ---
         we can sum the x value of the anchor point + x axis values for the offset blocks that make up tetromino + x axis value directional inputs to get the value for int x;
         ---
-        we can sum the y value in the tuple that makes up the anchor point + y axis values for the offset blocks that make up tetromino + y axis value directional inputs to get the value for int y;
+        and we can sum the y value of the anchor point + y axis values for the offset blocks that make up tetromino + y axis value directional inputs to get the value for int y;
         ---
         then we can use the values of int x and int y to determine if (the values of the x axis of the tetris piece are outside the grid on the left, or are outside the grid's on the right,
         or if the sum of the values of y are outside the top of the grid, or the bottom of it, or if the piece is wthin the grid but the cell is already occupied (!= 0, 1 means occupied)
@@ -130,7 +130,7 @@ The piece moves by receiving (left and right inputs, and up and down inputs)
 }
 ```
 
-This method is pretty much the core logic the entire game is based off of, and many of the other methods incorporate or are built around this logic.
+This method essentially expresses the core logic the entire game is based off of. Many of the other methods that make up the game incorporate or are built around this logic.
 
 ---
 
