@@ -32,10 +32,10 @@ In the above example, lets assume we are using the t. shaped piece
 `(0,0), (-1,0), (1,0), (0,1)`
 
 - `P = static (int x, int y) positionOfPiece;`  
-  The P value represents the point expressed in the tuple `(5,0)`. This is the starting point that will be the basis from which we define the center of our tetromino going forward, this anchor point is also the value that the offset pieces use to generate around.
+  The P value represents the point expressed in the tuple `(5,0)`. This is the starting point that will be the basis from which we define the center of our tetromino going forward, this anchor point is also the value that the offset blocks use to generate around.
 
 - `X = static (int x, int y)[] currentPiece;`  
-  The variable that holds the piece we are using from the pieces pool. It provides the values that make up our block `[(0,0), (-1,0), (1,0), (0,1)]`, and will help determine the occupied positions of offset pieces (other blocks) that build around anchor point.
+  The variable that holds the piece we are using from the pieces pool. It provides the values that make up our block `[(0,0), (-1,0), (1,0), (0,1)]`, and will help determine the occupied positions of offset blocks that build around anchor point.
 
 - `.` = empty position
 
