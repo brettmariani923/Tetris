@@ -6,7 +6,7 @@ This is a Tetris game I made with the intention of seeing what the console was c
 
 ---
 
-### Explaining the core logic of the game:
+### Explaining the Logic of the Game:
 
 ---
 
