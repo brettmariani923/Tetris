@@ -111,7 +111,6 @@ If all blocks can move without issue, then the piece is allowed to move.
 So to put the method in more straightforward terms:
 ```
 The piece moves by receiving (left and right inputs, and up and down inputs)
-
 {
     and by using these input values, as well as the values foreach (of the offset blocks on the x and y axis that make up the tetromino shape)  
     {
