@@ -42,7 +42,7 @@ In the above example, lets assume we are using the t. shaped piece
 ---
 
 So the starting anchor point we want to use for `P` or the `positionOfPiece` is `(width/2, 0)` or in other words, `(5,0)`.  
-The piece starts at the top center of the grid to begin with, where we want our pieces to spawn.
+The starts the piece at the top center of the grid to begin with, which is where we want our pieces to spawn.
 
 From there, the formula used to determine how and where the piece appears is based off the anchor point:  
 `positionOfPiece = (5,0) + the values of the blocks that make up the piece: [(0,0), (-1,0), (1,0), (0,1)]`
