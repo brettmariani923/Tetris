@@ -120,8 +120,7 @@ The piece moves by receiving (left and right inputs, and up and down inputs)
         ---
         we can sum the y value in the tuple that makes up the anchor point + y axis values for the offset blocks that make up tetromino + y axis value directional inputs to get the value for int y;
         ---
-        then we can use the values of int x and int y to determine if (the values of the x axis of the tetris piece are above the grid, or are outside the grid's width, or if the sum of the values of y are above the height of the grid,
-        outside its width, or if the piece is wthin the grid but the cell is already occupied (!= 0, 1 means occupied)
+        then we can use the values of int x and int y to determine if (the values of the x axis of the tetris piece are outside the grid on the left, or are outside the grid's on the right, or if the sum of the values of y are outside the top of the grid, or the bottom of it, or if the piece is wthin the grid but the cell is already occupied (!= 0, 1 means occupied)
         ---
         If any of these scenarios are the case, the piece isn't allowed to move;
     }
