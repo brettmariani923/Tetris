@@ -126,7 +126,7 @@ The piece moves by receiving (left and right inputs, and up and down inputs)
         If any of these scenarios are the case, the piece isn't allowed to move;
     }
     ```
-    but if any of these scenarios are not the case, the piece is allowed to move;
+    but if these scenarios are not the case, the piece is allowed to move;
 }
 ```
 
