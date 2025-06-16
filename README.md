@@ -62,7 +62,7 @@ So for our T block, the relative positions would be:
 [5, 1]        // bottom
 ```
 
-If you wanteed to `MovePiece(0,1)`, or in other words move the piece down one space from the starting position, we would need an input to update the anchor point of the piece to be `(5,1)` + `[(0,0), (-1,0), (1,0), (0,1)]`, which results in:
+If you wanted to `MovePiece(0,1)`, or in other words move the piece down one space from the starting position, we would need an input to update the anchor point of the piece to be `(5,1)` + `[(0,0), (-1,0), (1,0), (0,1)]`, which results in:
 ```
 [5, 1],       // center
 [4, 1],       // left
