@@ -129,7 +129,7 @@ The piece moves by receiving (left and right inputs, and up and down inputs)
 }
 ```
 
-This method essentially expresses the core logic the entire game is based off of. Many of the other methods that make up the game incorporate or are built around this logic.
+This method essentially expresses the core logic of the entire game. Many of the other methods that make up the game incorporate or are built around this logic.
 
 ---
 
