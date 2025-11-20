@@ -1,26 +1,14 @@
 ﻿namespace Tetris;
 
-//This class manages the game pieces: piece creation, movement, and rotation
-//Coordinates with the Grid class to update the game grid
-//Handles rendering of active pieces and user input
-
-//"This class encapsulates all logic related to the tetromino pieces — like selecting a random piece, moving it based on player input, and determining if it can be rotated or placed."
 public class Tetrominos
 {
-    static (int x, int y)[] currentPiece; // The current piece being played, defined as a set of coordinates relative to the center. Accepts a tuple of x and y coordinates
+    static (int x, int y)[] currentPiece; 
     static Random random = new Random();
-    static (int x, int y) positionOfPiece; //The variable positionOfPiece represents the top-left grid position of the center point of the current falling tetromino. It acts as the anchor for all the piece’s relative coordinates.
-    //The game uses positionOfPiece as the base point, and each block of the tetromino is positioned relative to it using values from currentPiece(like (-1,0), (1,0), etc.).
-    //So the actual grid positions of a tetromino block are computed like this:
+    static (int x, int y) positionOfPiece; 
     static int width = 10, height = 20;
     static bool gameOver = false;
     public static bool pause = false;
     static int currentPieceIndex; // The index of the current piece in the pieces pool, used to identify which piece is currently active
-
-    // The pieces are defined in a 2x2 grid, with the center of the piece at (0,0).
-    // The other points are relative to that. So (1,0) is the square one to the right of (0,0),
-    // (-1,0) is the square one to the left of (0,0), (0,1) is the square one above (0,0), and (0,-1)
-    // is the square one below (0,0), etc.
 
     //I designed it like this after reading the code for other tetris games, and of the few methods used for methods and rotation 
     //this design best simplified movemnt and rotation.
@@ -49,15 +37,6 @@ public class Tetrominos
     ConsoleColor.Red       // Z-piece
 };
 
-
-    //The CanMove method checks if the piece can move to a new position.
-    //It checks if the new position is within the bounds of the grid and if there are no other pieces in the way.
-    //If the piece can move, it returns true. Otherwise, it returns false.
-    //It does this by checking each point of the piece against the grid.
-
-    //The canmove method accepts input as dx and dy, which are the changes caused by the user inputs to the x and y coordinates respectively.
-    //we start by defining the x variable, which adds the position of the current piece (px, comes from the piece's shape (e.g. (-1,0), (1,0)) with the value of the user input (dx, left, right, up, down).
-    //->  if (x < 0 || x >= width || y < 0 || y >= height || (y >= 0 && Grid.newGrid[y, x] != 0))
     public static bool CanMove(int dx, int dy)  //Method that accepts input as dx and dy, which are the changes in the x and y coordinates respectively -
     {                                                       
         foreach (var (px, py) in currentPiece)              
@@ -174,7 +153,6 @@ public class Tetrominos
                 Console.Write(isPiece || Grid.newGrid[y, x] != 0 ? "◯" : ".");
 
             }
-
             Console.WriteLine();
         }
     }

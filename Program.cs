@@ -32,7 +32,7 @@
                 { 
                     Grid.ClearFullRows();
                     Grid.DrawBoard();
-                    Thread.Sleep(Math.Max(100, 400 - (Grid.score * 10)));
+                    Thread.Sleep(Math.Max(80, 400 - (Grid.score * 10)));
                     Tetrominos.MovePiece(0, 1);
                 }
 

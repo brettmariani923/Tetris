@@ -1,5 +1,4 @@
 ﻿namespace Tetris;
-
 public class Grid
 {
     public static int width = 10;
