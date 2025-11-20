@@ -26,6 +26,7 @@ public class Tetrominos
         
         new[] { (0,0), (-1,0), (1, 0), (0, 1) }, 
     };
+
     public static ConsoleColor[] pieceColors = //This section holds an array of colors, where each color corresponds to a piece in the piecesPool array.
     {
     ConsoleColor.Yellow,   // O-piece
@@ -35,7 +36,7 @@ public class Tetrominos
     ConsoleColor.DarkYellow, // L-piece
     ConsoleColor.Green,    // S-piece
     ConsoleColor.Red       // Z-piece
-};
+    };
 
     public static bool CanMove(int dx, int dy)  //Method that accepts input as dx and dy, which are the changes in the x and y coordinates respectively -
     {                                                       
