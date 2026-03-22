@@ -1,0 +1,6 @@
+﻿how to deslop a project
+
+step 1. Analysis.
+
+Trace pathways through the project
+-Look for common ideas to group.
